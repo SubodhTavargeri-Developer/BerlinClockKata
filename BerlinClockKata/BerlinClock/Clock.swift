@@ -40,7 +40,11 @@ class Clock {
     func fiveMinuteLightRow()-> [Lights] {
         let numberOfIlluminatedLights = minutes/5
         
-        let totalNumberOfLights = calculateNumberOfLights(totalNumberOfLightsInARow: numberOfLightsInARow.fiveMinuteRow, numberOfIlluminatedLight: numberOfIlluminatedLights,illuminatedLight: .Yellow)
+        var totalNumberOfLights = calculateNumberOfLights(totalNumberOfLightsInARow: numberOfLightsInARow.fiveMinuteRow, numberOfIlluminatedLight: numberOfIlluminatedLights,illuminatedLight: .Yellow)
+        
+        for index in 1...totalNumberOfLights.count where index%3 == 0 && totalNumberOfLights[index-1] == .Yellow {
+            totalNumberOfLights[index-1] = Lights.Red
+        }
         
         return  totalNumberOfLights
     }
