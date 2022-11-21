@@ -8,7 +8,7 @@ class ClockTests: XCTestCase {
     func test_SecondsLightRowIsIlluminatedWithLightYellow_WhenSecondsValueIsEven() {
         let Time = DigitalTime(hours: 0, minutes: 0, seconds: 2)
         
-        let originalValue = clock.secondLightRow(Time.seconds)
+        let originalValue = clock.computeBerlinClockTime(for: Time).secondsLight
         
         let expected = [Light.Yellow]
         XCTAssertEqual(originalValue, expected)
@@ -17,7 +17,7 @@ class ClockTests: XCTestCase {
     func test_SecondsLightRowIsIlluminatedWithLightOff_WhenSecondsValueIsOdd() {
         let Time = DigitalTime(hours: 0, minutes: 0, seconds: 5)
         
-        let originalValue = clock.secondLightRow(Time.seconds)
+        let originalValue = clock.computeBerlinClockTime(for: Time).secondsLight
         
         let expected = [Light.Off]
         XCTAssertEqual(originalValue, expected)

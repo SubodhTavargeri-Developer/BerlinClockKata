@@ -28,7 +28,7 @@ class Clock {
                         secondsLight: secondLightRow(digitalTime.seconds))
     }
     
-    func secondLightRow(_ seconds: DigitalSeconds)-> [Light] {
+    private func secondLightRow(_ seconds: DigitalSeconds)-> [Light] {
         return seconds%lightRemainder.secondRemainder == 0 ? [.Yellow]: [.Off]
     }
     
