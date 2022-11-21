@@ -20,6 +20,14 @@ class Clock {
         static let thirdLightInFiveMinuteRemainder = 3
     }
     
+    func computeBerlinClockTime(for digitalTime: DigitalTime) -> BerlinClockTime {
+        BerlinClockTime(fiveHoursLights: fiveHourLightRow(digitalTime.hours),
+                        oneHoursLights: oneHourLightRow(digitalTime.hours),
+                        fiveMinutesLights: fiveMinuteLightRow(digitalTime.minutes),
+                        oneMinutesLights: oneMinuteLightRow(digitalTime.minutes),
+                        secondsLight: secondLightRow(digitalTime.seconds))
+    }
+    
     func secondLightRow(_ seconds: DigitalSeconds)-> [Light] {
         return seconds%lightRemainder.secondRemainder == 0 ? [.Yellow]: [.Off]
     }

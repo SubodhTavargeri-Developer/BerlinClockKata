@@ -20,6 +20,7 @@
 		5B2B0779292B496C00D31E6A /* Clock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2B0778292B496C00D31E6A /* Clock.swift */; };
 		5B2B077B292B4EE000D31E6A /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2B077A292B4EE000D31E6A /* Constant.swift */; };
 		5B2B0781292BA79E00D31E6A /* DigitalTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2B0780292BA79E00D31E6A /* DigitalTime.swift */; };
+		5BA6B286292C122E001EE2F2 /* BerlinClockTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA6B285292C122E001EE2F2 /* BerlinClockTime.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		5B2B0778292B496C00D31E6A /* Clock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clock.swift; sourceTree = "<group>"; };
 		5B2B077A292B4EE000D31E6A /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		5B2B0780292BA79E00D31E6A /* DigitalTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalTime.swift; sourceTree = "<group>"; };
+		5BA6B285292C122E001EE2F2 /* BerlinClockTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BerlinClockTime.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				5B2B0780292BA79E00D31E6A /* DigitalTime.swift */,
+				5BA6B285292C122E001EE2F2 /* BerlinClockTime.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 				5B2B077B292B4EE000D31E6A /* Constant.swift in Sources */,
 				5B2B0779292B496C00D31E6A /* Clock.swift in Sources */,
 				5B2B0748292B440300D31E6A /* SceneDelegate.swift in Sources */,
+				5BA6B286292C122E001EE2F2 /* BerlinClockTime.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
