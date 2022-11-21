@@ -19,7 +19,7 @@
 		5B2B0776292B469900D31E6A /* ClockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2B0775292B469900D31E6A /* ClockTests.swift */; };
 		5B2B0779292B496C00D31E6A /* Clock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2B0778292B496C00D31E6A /* Clock.swift */; };
 		5B2B077B292B4EE000D31E6A /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2B077A292B4EE000D31E6A /* Constant.swift */; };
-		5B2B0781292BA79E00D31E6A /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2B0780292BA79E00D31E6A /* Time.swift */; };
+		5B2B0781292BA79E00D31E6A /* DigitalTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2B0780292BA79E00D31E6A /* DigitalTime.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,7 +56,7 @@
 		5B2B0775292B469900D31E6A /* ClockTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockTests.swift; sourceTree = "<group>"; };
 		5B2B0778292B496C00D31E6A /* Clock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clock.swift; sourceTree = "<group>"; };
 		5B2B077A292B4EE000D31E6A /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
-		5B2B0780292BA79E00D31E6A /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
+		5B2B0780292BA79E00D31E6A /* DigitalTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalTime.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,7 +150,7 @@
 		5B2B077F292BA79200D31E6A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				5B2B0780292BA79E00D31E6A /* Time.swift */,
+				5B2B0780292BA79E00D31E6A /* DigitalTime.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -286,7 +286,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B2B0781292BA79E00D31E6A /* Time.swift in Sources */,
+				5B2B0781292BA79E00D31E6A /* DigitalTime.swift in Sources */,
 				5B2B074A292B440300D31E6A /* ViewController.swift in Sources */,
 				5B2B0746292B440300D31E6A /* AppDelegate.swift in Sources */,
 				5B2B077B292B4EE000D31E6A /* Constant.swift in Sources */,

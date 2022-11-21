@@ -1,4 +1,4 @@
-struct Time {
+struct DigitalTime {
     let hours: DigitalHours
     let minutes: DigitalMinutes
     let seconds: DigitalSeconds

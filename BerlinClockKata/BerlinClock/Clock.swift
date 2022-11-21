@@ -24,7 +24,7 @@ class Clock {
         static let thirdLightInFiveMinuteRemainder = 3
     }
     
-    func setClockValues(time: Time) {
+    func setClockValues(time: DigitalTime) {
         hours = time.hours
         minutes = time.minutes
         seconds = time.seconds

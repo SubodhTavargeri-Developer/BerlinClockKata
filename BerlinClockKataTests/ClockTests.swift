@@ -6,7 +6,7 @@ class ClockTests: XCTestCase {
     let clock = Clock()
     
     func test_SecondsLightRowIsIlluminatedWithLightYellow_WhenSecondsValueIsEven() {
-        let Time = Time(hours: 0, minutes: 0, seconds: 2)
+        let Time = DigitalTime(hours: 0, minutes: 0, seconds: 2)
         clock.setClockValues(time: Time)
         
         let originalValue = clock.secondLightRow()
@@ -16,7 +16,7 @@ class ClockTests: XCTestCase {
     }
     
     func test_SecondsLightRowIsIlluminatedWithLightOff_WhenSecondsValueIsOdd() {
-        let Time = Time(hours: 0, minutes: 0, seconds: 5)
+        let Time = DigitalTime(hours: 0, minutes: 0, seconds: 5)
         clock.setClockValues(time: Time)
         
         let originalValue = clock.secondLightRow()
@@ -26,7 +26,7 @@ class ClockTests: XCTestCase {
     }
     
     func test_OneRedLightsAreIluminatedOfFiveHourRow_WhenHoursValueIsFive() {
-        let Time = Time(hours: 5, minutes: 0, seconds: 0)
+        let Time = DigitalTime(hours: 5, minutes: 0, seconds: 0)
         clock.setClockValues(time: Time)
         
         let originalValue = clock.fiveHourLightRow()
@@ -36,7 +36,7 @@ class ClockTests: XCTestCase {
     }
     
     func test_TwoRedLightsAreIlluminatedOfFiveHourRow_WhenHoursValueIsTen() {
-        let Time = Time(hours: 10, minutes: 0, seconds: 0)
+        let Time = DigitalTime(hours: 10, minutes: 0, seconds: 0)
         clock.setClockValues(time: Time)
         
         let originalValue = clock.fiveHourLightRow()
@@ -46,7 +46,7 @@ class ClockTests: XCTestCase {
     }
     
     func test_FourRedLightsAreIlluminatedOfFiveHourRow_WhenHoursValueIsTwenty() {
-        let Time = Time(hours: 20, minutes: 0, seconds: 0)
+        let Time = DigitalTime(hours: 20, minutes: 0, seconds: 0)
         clock.setClockValues(time: Time)
         
         let originalValue = clock.fiveHourLightRow()
@@ -56,7 +56,7 @@ class ClockTests: XCTestCase {
     }
     
     func test_ZeroRedLightsAreIlluminatedOfFiveHourRow_WhenHoursValueIsZero() {
-        let Time = Time(hours: 0, minutes: 0, seconds: 0)
+        let Time = DigitalTime(hours: 0, minutes: 0, seconds: 0)
         clock.setClockValues(time: Time)
         
         let originalValue = clock.fiveHourLightRow()
@@ -66,7 +66,7 @@ class ClockTests: XCTestCase {
     }
     
     func test_OneRedLightIsIlluminatedOfOneHourRow_WhenHoursValueisOne() {
-        let Time = Time(hours: 1, minutes: 1, seconds: 0)
+        let Time = DigitalTime(hours: 1, minutes: 1, seconds: 0)
         clock.setClockValues(time: Time)
         
         let originalValue = clock.oneHourLightRow()
@@ -76,7 +76,7 @@ class ClockTests: XCTestCase {
     }
     
     func test_TwoRedLightsAreIlluminatedOfOneHourRow_WhenHoursValueisTwo() {
-        let Time = Time(hours: 2, minutes: 0, seconds: 0)
+        let Time = DigitalTime(hours: 2, minutes: 0, seconds: 0)
         clock.setClockValues(time: Time)
         
         let originalValue = clock.oneHourLightRow()
@@ -86,7 +86,7 @@ class ClockTests: XCTestCase {
     }
     
     func test_FourRedLightsAreIlluminatedOfOneHourRow_WhenHoursValueisFour() {
-        let Time = Time(hours: 4, minutes: 0, seconds: 0)
+        let Time = DigitalTime(hours: 4, minutes: 0, seconds: 0)
         clock.setClockValues(time: Time)
         
         let originalValue = clock.oneHourLightRow()
@@ -96,7 +96,7 @@ class ClockTests: XCTestCase {
     }
     
     func test_OneYellowLightIsIlluminatedOfFiveMinuteRow_WhenMinuteValueIsFive() {
-        let Time = Time(hours: 0, minutes: 5, seconds: 0)
+        let Time = DigitalTime(hours: 0, minutes: 5, seconds: 0)
         clock.setClockValues(time: Time)
         
         let originalValue = clock.fiveMinuteLightRow()
@@ -107,7 +107,7 @@ class ClockTests: XCTestCase {
     }
     
     func test_TwoYellowLightIsIlluminatedOfFiveMinuteRow_WhenMinuteValueIsTen() {
-        let Time = Time(hours: 0, minutes: 10, seconds: 0)
+        let Time = DigitalTime(hours: 0, minutes: 10, seconds: 0)
         clock.setClockValues(time: Time)
         
         let originalValue = clock.fiveMinuteLightRow()
@@ -118,7 +118,7 @@ class ClockTests: XCTestCase {
     }
     
     func test_TwoYellowLightAndOneRedLightIsIlluminatedOfFiveMinuteRow_WhenMinuteValueIsFifteen() {
-        let Time = Time(hours: 0, minutes: 15, seconds: 0)
+        let Time = DigitalTime(hours: 0, minutes: 15, seconds: 0)
         clock.setClockValues(time: Time)
         
         let originalValue = clock.fiveMinuteLightRow()
@@ -129,7 +129,7 @@ class ClockTests: XCTestCase {
     }
     
     func test_EightYellowLightAndThreeRedLightIAreIlluminatedOfFiveMinuteRow_WhenMinuteValueIsFifyNine() {
-        let Time = Time(hours: 0, minutes: 59, seconds: 0)
+        let Time = DigitalTime(hours: 0, minutes: 59, seconds: 0)
         clock.setClockValues(time: Time)
         
         let originalValue = clock.fiveMinuteLightRow()
@@ -140,7 +140,7 @@ class ClockTests: XCTestCase {
     }
     
     func test_ZeroYellowLightAndZeroRedLightAreIlluminatedOfFiveMinuteRow_WhenMinuteValueIsZero() {
-        let Time = Time(hours: 0, minutes: 0, seconds: 0)
+        let Time = DigitalTime(hours: 0, minutes: 0, seconds: 0)
         clock.setClockValues(time: Time)
         
         let originalValue = clock.fiveMinuteLightRow()
@@ -151,7 +151,7 @@ class ClockTests: XCTestCase {
     }
     
     func test_OneYellowLightIsIlluminatedOfOneMinuteRow_WhenMinuteValueIsOne() {
-        let Time = Time(hours: 0, minutes: 1, seconds: 0)
+        let Time = DigitalTime(hours: 0, minutes: 1, seconds: 0)
         clock.setClockValues(time: Time)
         
         let originalValue = clock.oneMinuteLightRow()
@@ -161,7 +161,7 @@ class ClockTests: XCTestCase {
     }
     
     func test_TwoYellowLightAreIlluminatedOfOneMinuteRow_WhenMinuteValueIsTwo() {
-        let Time = Time(hours: 0, minutes: 2, seconds: 0)
+        let Time = DigitalTime(hours: 0, minutes: 2, seconds: 0)
         clock.setClockValues(time: Time)
         
         let originalValue = clock.oneMinuteLightRow()
@@ -171,7 +171,7 @@ class ClockTests: XCTestCase {
     }
     
     func test_FourYellowLightAreIlluminatedOfOneMinuteRow_WhenMinuteValueIsFour() {
-        let Time = Time(hours: 0, minutes: 4, seconds: 0)
+        let Time = DigitalTime(hours: 0, minutes: 4, seconds: 0)
         clock.setClockValues(time: Time)
         
         let originalValue = clock.oneMinuteLightRow()
@@ -181,7 +181,7 @@ class ClockTests: XCTestCase {
     }
     
     func test_ZeroYellowLightAreIlluminatedOfOneMinuteRow_WhenMinuteValueIsZero() {
-        let Time = Time(hours: 0, minutes: 0, seconds: 0)
+        let Time = DigitalTime(hours: 0, minutes: 0, seconds: 0)
         clock.setClockValues(time: Time)
         
         let originalValue = clock.oneMinuteLightRow()
@@ -191,7 +191,7 @@ class ClockTests: XCTestCase {
     }
     
     func test_EntireBerlinClock_WhenTimeIsZeroZeroZero() {
-        let Time = Time(hours: 0, minutes: 0, seconds: 0)
+        let Time = DigitalTime(hours: 0, minutes: 0, seconds: 0)
         clock.setClockValues(time: Time)
         
         let originalValue = getEntireBerlinClock()
@@ -204,7 +204,7 @@ class ClockTests: XCTestCase {
     }
     
     func test_EntireBerlinClock_WhenTimeIsTwentyThreeFiftyNineFiftyNine() {
-        let Time = Time(hours: 23, minutes: 59, seconds: 59)
+        let Time = DigitalTime(hours: 23, minutes: 59, seconds: 59)
         clock.setClockValues(time: Time)
         
         let originalValue = getEntireBerlinClock()
@@ -217,7 +217,7 @@ class ClockTests: XCTestCase {
     }
     
     func test_EntireBerlinClock_WhenTimeIsSixteenFiftySix() {
-        let Time = Time(hours: 16, minutes: 50, seconds: 06)
+        let Time = DigitalTime(hours: 16, minutes: 50, seconds: 06)
         clock.setClockValues(time: Time)
         
         let originalValue = getEntireBerlinClock()
@@ -230,7 +230,7 @@ class ClockTests: XCTestCase {
     }
     
     func test_EntireBerlinClock_WhenTimeIsElevenThirtySevenZeroOne() {
-        let Time = Time(hours: 11, minutes: 37, seconds: 01)
+        let Time = DigitalTime(hours: 11, minutes: 37, seconds: 01)
         clock.setClockValues(time: Time)
         
         let originalValue = getEntireBerlinClock()
