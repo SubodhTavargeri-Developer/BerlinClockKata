@@ -194,11 +194,7 @@ class ClockTests: XCTestCase {
         let Time = Time(hours: 0, minutes: 0, seconds: 0)
         clock.setClockValues(time: Time)
         
-        var originalValue = clock.secondLightRow()
-        originalValue.append(contentsOf: clock.fiveHourLightRow())
-        originalValue.append(contentsOf: clock.oneHourLightRow())
-        originalValue.append(contentsOf: clock.fiveMinuteLightRow())
-        originalValue.append(contentsOf: clock.oneMinuteLightRow())
+        let originalValue = getEntireBerlinClock()
         
         let expected = [Light.Yellow,Light.Off,Light.Off,Light.Off,Light.Off,Light.Off
                         ,Light.Off,Light.Off,Light.Off,Light.Off,Light.Off,Light.Off
@@ -211,11 +207,7 @@ class ClockTests: XCTestCase {
         let Time = Time(hours: 23, minutes: 59, seconds: 59)
         clock.setClockValues(time: Time)
         
-        var originalValue = clock.secondLightRow()
-        originalValue.append(contentsOf: clock.fiveHourLightRow())
-        originalValue.append(contentsOf: clock.oneHourLightRow())
-        originalValue.append(contentsOf: clock.fiveMinuteLightRow())
-        originalValue.append(contentsOf: clock.oneMinuteLightRow())
+        let originalValue = getEntireBerlinClock()
         
         let expected = [Light.Off,Light.Red,Light.Red,Light.Red,Light.Red,Light.Red
                         ,Light.Red,Light.Red,Light.Off,Light.Yellow,Light.Yellow,Light.Red
@@ -228,11 +220,7 @@ class ClockTests: XCTestCase {
         let Time = Time(hours: 16, minutes: 50, seconds: 06)
         clock.setClockValues(time: Time)
         
-        var originalValue = clock.secondLightRow()
-        originalValue.append(contentsOf: clock.fiveHourLightRow())
-        originalValue.append(contentsOf: clock.oneHourLightRow())
-        originalValue.append(contentsOf: clock.fiveMinuteLightRow())
-        originalValue.append(contentsOf: clock.oneMinuteLightRow())
+        let originalValue = getEntireBerlinClock()
         
         let expected = [Light.Yellow,Light.Red,Light.Red,Light.Red,Light.Off,Light.Red
                         ,Light.Off,Light.Off,Light.Off,Light.Yellow,Light.Yellow,Light.Red
