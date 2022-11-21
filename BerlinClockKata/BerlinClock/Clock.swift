@@ -18,11 +18,11 @@ class Clock {
         seconds = time.seconds
     }
     
-    func isSecondRowLightIlluminated()-> Lights {
+    func isSecondRowLightIlluminated()-> Light {
         return seconds%2 == 0 ? .Yellow: .Off
     }
     
-    func fiveHourLightRow()-> [Lights] {
+    func fiveHourLightRow()-> [Light] {
         let numberOfRedLights = hours/5
         
         let totalNumberOfLights = calculateNumberOfLights(totalNumberOfLightsInARow: numberOfLightsInARow.fiveHourRow, numberOfIlluminatedLight: numberOfRedLights, illuminatedLight: .Red)
@@ -30,7 +30,7 @@ class Clock {
         return totalNumberOfLights
     }
     
-    func oneHourLightRow()-> [Lights] {
+    func oneHourLightRow()-> [Light] {
         let numberOfRedLights = hours%5
         
         let totalNumberOfLights = calculateNumberOfLights(totalNumberOfLightsInARow: numberOfLightsInARow.oneHourRow, numberOfIlluminatedLight: numberOfRedLights, illuminatedLight: .Red)
@@ -38,19 +38,19 @@ class Clock {
         return totalNumberOfLights
     }
     
-    func fiveMinuteLightRow()-> [Lights] {
+    func fiveMinuteLightRow()-> [Light] {
         let numberOfIlluminatedLights = minutes/5
         
         var totalNumberOfLights = calculateNumberOfLights(totalNumberOfLightsInARow: numberOfLightsInARow.fiveMinuteRow, numberOfIlluminatedLight: numberOfIlluminatedLights,illuminatedLight: .Yellow)
         
         for index in 1...totalNumberOfLights.count where isThirdLightYellowInFiveMinuteLightRow(index: index, totalLights: totalNumberOfLights) {
-            totalNumberOfLights[index-1] = Lights.Red
+            totalNumberOfLights[index-1] = Light.Red
         }
         
         return  totalNumberOfLights
     }
     
-    func oneMinuteLightRow()-> [Lights] {
+    func oneMinuteLightRow()-> [Light] {
         let numberOfIlluminatedLights = minutes%5
         
         let totalNumberOfLights = calculateNumberOfLights(totalNumberOfLightsInARow: numberOfLightsInARow.oneMinuteRow, numberOfIlluminatedLight: numberOfIlluminatedLights, illuminatedLight: .Yellow)
@@ -58,14 +58,14 @@ class Clock {
         return  totalNumberOfLights
     }
     
-    private func isThirdLightYellowInFiveMinuteLightRow(index: Int, totalLights: [Lights])-> Bool {
+    private func isThirdLightYellowInFiveMinuteLightRow(index: Int, totalLights: [Light])-> Bool {
         return index%3 == 0 && totalLights[index-1] == .Yellow
     }
     
     private func calculateNumberOfLights(totalNumberOfLightsInARow: Int,
                                          numberOfIlluminatedLight: Int,
-                                         illuminatedLight: Lights)-> [Lights] {
-        var totalNumberOfLights = [Lights]()
+                                         illuminatedLight: Light)-> [Light] {
+        var totalNumberOfLights = [Light]()
         
         for _ in 0..<totalNumberOfLightsInARow {
             totalNumberOfLights.append(.Off)

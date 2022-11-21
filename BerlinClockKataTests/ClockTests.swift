@@ -11,7 +11,7 @@ class ClockTests: XCTestCase {
         
         let originalValue = clock.isSecondRowLightIlluminated()
         
-        let expected = Lights.Yellow
+        let expected = Light.Yellow
         XCTAssertEqual(originalValue, expected)
     }
     
@@ -21,7 +21,7 @@ class ClockTests: XCTestCase {
         
         let originalValue = clock.isSecondRowLightIlluminated()
         
-        let expected = Lights.Off
+        let expected = Light.Off
         XCTAssertEqual(originalValue, expected)
     }
     
@@ -31,7 +31,7 @@ class ClockTests: XCTestCase {
         
         let originalValue = clock.fiveHourLightRow()
         
-        let expected = [Lights.Red,Lights.Off,Lights.Off,Lights.Off]
+        let expected = [Light.Red,Light.Off,Light.Off,Light.Off]
         XCTAssertEqual(originalValue, expected)
     }
     
@@ -41,7 +41,7 @@ class ClockTests: XCTestCase {
         
         let originalValue = clock.fiveHourLightRow()
         
-        let expected = [Lights.Red,Lights.Red,Lights.Off,Lights.Off]
+        let expected = [Light.Red,Light.Red,Light.Off,Light.Off]
         XCTAssertEqual(originalValue, expected)
     }
     
@@ -51,7 +51,7 @@ class ClockTests: XCTestCase {
         
         let originalValue = clock.fiveHourLightRow()
         
-        let expected = [Lights.Red,Lights.Red,Lights.Red,Lights.Red]
+        let expected = [Light.Red,Light.Red,Light.Red,Light.Red]
         XCTAssertEqual(originalValue, expected)
     }
     
@@ -61,7 +61,7 @@ class ClockTests: XCTestCase {
         
         let originalValue = clock.fiveHourLightRow()
         
-        let expected = [Lights.Off,Lights.Off,Lights.Off,Lights.Off]
+        let expected = [Light.Off,Light.Off,Light.Off,Light.Off]
         XCTAssertEqual(originalValue, expected)
     }
     
@@ -71,7 +71,7 @@ class ClockTests: XCTestCase {
         
         let originalValue = clock.oneHourLightRow()
         
-        let expected = [Lights.Red,Lights.Off,Lights.Off,Lights.Off]
+        let expected = [Light.Red,Light.Off,Light.Off,Light.Off]
         XCTAssertEqual(originalValue, expected)
     }
     
@@ -81,7 +81,7 @@ class ClockTests: XCTestCase {
         
         let originalValue = clock.oneHourLightRow()
         
-        let expected = [Lights.Red,Lights.Red,Lights.Off,Lights.Off]
+        let expected = [Light.Red,Light.Red,Light.Off,Light.Off]
         XCTAssertEqual(originalValue, expected)
     }
     
@@ -91,7 +91,7 @@ class ClockTests: XCTestCase {
         
         let originalValue = clock.oneHourLightRow()
         
-        let expected = [Lights.Red,Lights.Red,Lights.Red,Lights.Red]
+        let expected = [Light.Red,Light.Red,Light.Red,Light.Red]
         XCTAssertEqual(originalValue, expected)
     }
     
@@ -101,8 +101,8 @@ class ClockTests: XCTestCase {
         
         let originalValue = clock.fiveMinuteLightRow()
         
-        let expected = [Lights.Yellow,Lights.Off,Lights.Off,Lights.Off,Lights.Off,
-                        Lights.Off,Lights.Off,Lights.Off,Lights.Off,Lights.Off,Lights.Off]
+        let expected = [Light.Yellow,Light.Off,Light.Off,Light.Off,Light.Off,
+                        Light.Off,Light.Off,Light.Off,Light.Off,Light.Off,Light.Off]
         XCTAssertEqual(originalValue, expected)
     }
     
@@ -112,8 +112,8 @@ class ClockTests: XCTestCase {
         
         let originalValue = clock.fiveMinuteLightRow()
         
-        let expected = [Lights.Yellow,Lights.Yellow,Lights.Off,Lights.Off,Lights.Off,
-                        Lights.Off,Lights.Off,Lights.Off,Lights.Off,Lights.Off,Lights.Off]
+        let expected = [Light.Yellow,Light.Yellow,Light.Off,Light.Off,Light.Off,
+                        Light.Off,Light.Off,Light.Off,Light.Off,Light.Off,Light.Off]
         XCTAssertEqual(originalValue, expected)
     }
     
@@ -123,8 +123,8 @@ class ClockTests: XCTestCase {
         
         let originalValue = clock.fiveMinuteLightRow()
         
-        let expected = [Lights.Yellow,Lights.Yellow,Lights.Red,Lights.Off,Lights.Off,
-                        Lights.Off,Lights.Off,Lights.Off,Lights.Off,Lights.Off,Lights.Off]
+        let expected = [Light.Yellow,Light.Yellow,Light.Red,Light.Off,Light.Off,
+                        Light.Off,Light.Off,Light.Off,Light.Off,Light.Off,Light.Off]
         XCTAssertEqual(originalValue, expected)
     }
     
@@ -134,8 +134,8 @@ class ClockTests: XCTestCase {
         
         let originalValue = clock.fiveMinuteLightRow()
         
-        let expected = [Lights.Yellow,Lights.Yellow,Lights.Red,Lights.Yellow,Lights.Yellow,
-                        Lights.Red,Lights.Yellow,Lights.Yellow,Lights.Red,Lights.Yellow,Lights.Yellow]
+        let expected = [Light.Yellow,Light.Yellow,Light.Red,Light.Yellow,Light.Yellow,
+                        Light.Red,Light.Yellow,Light.Yellow,Light.Red,Light.Yellow,Light.Yellow]
         XCTAssertEqual(originalValue, expected)
     }
     
@@ -145,8 +145,8 @@ class ClockTests: XCTestCase {
         
         let originalValue = clock.fiveMinuteLightRow()
         
-        let expected = [Lights.Off,Lights.Off,Lights.Off,Lights.Off,Lights.Off,
-                        Lights.Off,Lights.Off,Lights.Off,Lights.Off,Lights.Off,Lights.Off]
+        let expected = [Light.Off,Light.Off,Light.Off,Light.Off,Light.Off,
+                        Light.Off,Light.Off,Light.Off,Light.Off,Light.Off,Light.Off]
         XCTAssertEqual(originalValue, expected)
     }
     
@@ -156,7 +156,7 @@ class ClockTests: XCTestCase {
         
         let originalValue = clock.oneMinuteLightRow()
         
-        let expected = [Lights.Yellow,Lights.Off,Lights.Off,Lights.Off]
+        let expected = [Light.Yellow,Light.Off,Light.Off,Light.Off]
         XCTAssertEqual(originalValue, expected)
     }
     
@@ -166,7 +166,7 @@ class ClockTests: XCTestCase {
         
         let originalValue = clock.oneMinuteLightRow()
         
-        let expected = [Lights.Yellow,Lights.Yellow,Lights.Off,Lights.Off]
+        let expected = [Light.Yellow,Light.Yellow,Light.Off,Light.Off]
         XCTAssertEqual(originalValue, expected)
     }
     
@@ -176,7 +176,7 @@ class ClockTests: XCTestCase {
         
         let originalValue = clock.oneMinuteLightRow()
         
-        let expected = [Lights.Yellow,Lights.Yellow,Lights.Yellow,Lights.Yellow]
+        let expected = [Light.Yellow,Light.Yellow,Light.Yellow,Light.Yellow]
         XCTAssertEqual(originalValue, expected)
     }
     
@@ -186,7 +186,7 @@ class ClockTests: XCTestCase {
         
         let originalValue = clock.oneMinuteLightRow()
         
-        let expected = [Lights.Off,Lights.Off,Lights.Off,Lights.Off]
+        let expected = [Light.Off,Light.Off,Light.Off,Light.Off]
         XCTAssertEqual(originalValue, expected)
     }
 }
