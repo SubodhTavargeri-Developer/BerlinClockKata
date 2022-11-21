@@ -24,4 +24,8 @@ class Clock {
         return totalNumberOfLights
     }
     
+    func oneHourLightRow()-> [Lights] {
+        [Lights.Red,Lights.Off,Lights.Off,Lights.Off]
+    }
+    
 }
