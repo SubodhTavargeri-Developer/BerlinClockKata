@@ -4,8 +4,9 @@ class Clock {
     private var seconds: Int = 0
     private var hours: Int = 5
     
-    func setClockValues(seconds: Int) {
+    func setClockValues(hours: Int, seconds: Int) {
         self.seconds = seconds
+        self.hours = hours
     }
     
     func isSecondRowLightIlluminated()-> Lights {
@@ -13,7 +14,14 @@ class Clock {
     }
     
     func fiveHourLightRow()-> [Lights] {
-        return [Lights.Red,Lights.Off,Lights.Off,Lights.Off]
+        let numberOfRedLights = hours/5
+        var totalNumberOfLights = [Lights.Off,Lights.Off,Lights.Off,Lights.Off]
+        
+        for index in 0..<numberOfRedLights {
+            totalNumberOfLights[index] = Lights.Red
+        }
+        
+        return totalNumberOfLights
     }
     
 }
