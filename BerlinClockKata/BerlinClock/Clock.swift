@@ -15,20 +15,29 @@ class Clock {
     
     func fiveHourLightRow()-> [Lights] {
         let numberOfRedLights = hours/5
-        var totalNumberOfLights = [Lights.Off,Lights.Off,Lights.Off,Lights.Off]
         
-        for index in 0..<numberOfRedLights {
-            totalNumberOfLights[index] = Lights.Red
-        }
+        let totalNumberOfLights = calculateTotalNumberOfIlluminatedLights(totalNumberOfLightsInARow: 4, numberOfIlluminatedLight: numberOfRedLights)
         
         return totalNumberOfLights
     }
     
     func oneHourLightRow()-> [Lights] {
         let numberOfRedLights = hours%5
-        var totalNumberOfLights = [Lights.Off,Lights.Off,Lights.Off,Lights.Off]
         
-        for index in 0..<numberOfRedLights {
+        let totalNumberOfLights = calculateTotalNumberOfIlluminatedLights(totalNumberOfLightsInARow: 4, numberOfIlluminatedLight: numberOfRedLights)
+        
+        return totalNumberOfLights
+    }
+    
+    private func calculateTotalNumberOfIlluminatedLights(totalNumberOfLightsInARow: Int,
+                                                         numberOfIlluminatedLight: Int)-> [Lights] {
+        var totalNumberOfLights = [Lights]()
+        
+        for _ in 0..<totalNumberOfLightsInARow {
+            totalNumberOfLights.append(.Off)
+        }
+        
+        for index in 0..<numberOfIlluminatedLight {
             totalNumberOfLights[index] = Lights.Red
         }
         
