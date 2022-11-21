@@ -42,11 +42,15 @@ class Clock {
         
         var totalNumberOfLights = calculateNumberOfLights(totalNumberOfLightsInARow: numberOfLightsInARow.fiveMinuteRow, numberOfIlluminatedLight: numberOfIlluminatedLights,illuminatedLight: .Yellow)
         
-        for index in 1...totalNumberOfLights.count where index%3 == 0 && totalNumberOfLights[index-1] == .Yellow {
+        for index in 1...totalNumberOfLights.count where isThirdLightYellowInFiveMinuteLightRow(index: index, totalLights: totalNumberOfLights) {
             totalNumberOfLights[index-1] = Lights.Red
         }
         
         return  totalNumberOfLights
+    }
+    
+    private func isThirdLightYellowInFiveMinuteLightRow(index: Int, totalLights: [Lights])-> Bool {
+        return index%3 == 0 && totalLights[index-1] == .Yellow
     }
     
     private func calculateNumberOfLights(totalNumberOfLightsInARow: Int,
