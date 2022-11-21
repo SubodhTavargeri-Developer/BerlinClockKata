@@ -159,4 +159,12 @@ class ClockTests: XCTestCase {
         let expected = [Lights.Yellow,Lights.Yellow,Lights.Yellow,Lights.Yellow]
         XCTAssertEqual(originalValue, expected)
     }
+    
+    func test_ZeroYellowLightAreIlluminatedOfOneMinuteRow_WhenMinuteValueIsZero() {
+        clock.setClockValues(hours: 0, minutes: 0, seconds: 0)
+        let originalValue = clock.oneMinuteLightRow()
+        
+        let expected = [Lights.Off,Lights.Off,Lights.Off,Lights.Off]
+        XCTAssertEqual(originalValue, expected)
+    }
 }
