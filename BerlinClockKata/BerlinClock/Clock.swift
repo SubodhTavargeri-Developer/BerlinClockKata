@@ -1,7 +1,5 @@
 
 class Clock {
-    
-    private var seconds: Int = 0
     private var hours: Int = 0
     private var minutes: Int = 0
     
@@ -27,10 +25,9 @@ class Clock {
     func setClockValues(time: DigitalTime) {
         hours = time.hours
         minutes = time.minutes
-        seconds = time.seconds
     }
     
-    func secondLightRow()-> [Light] {
+    func secondLightRow(_ seconds: DigitalSeconds)-> [Light] {
         return seconds%lightRemainder.secondRemainder == 0 ? [.Yellow]: [.Off]
     }
     

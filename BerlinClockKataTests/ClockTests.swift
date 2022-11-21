@@ -9,7 +9,7 @@ class ClockTests: XCTestCase {
         let Time = DigitalTime(hours: 0, minutes: 0, seconds: 2)
         clock.setClockValues(time: Time)
         
-        let originalValue = clock.secondLightRow()
+        let originalValue = clock.secondLightRow(Time.seconds)
         
         let expected = [Light.Yellow]
         XCTAssertEqual(originalValue, expected)
@@ -19,7 +19,7 @@ class ClockTests: XCTestCase {
         let Time = DigitalTime(hours: 0, minutes: 0, seconds: 5)
         clock.setClockValues(time: Time)
         
-        let originalValue = clock.secondLightRow()
+        let originalValue = clock.secondLightRow(Time.seconds)
         
         let expected = [Light.Off]
         XCTAssertEqual(originalValue, expected)
@@ -194,7 +194,7 @@ class ClockTests: XCTestCase {
         let Time = DigitalTime(hours: 0, minutes: 0, seconds: 0)
         clock.setClockValues(time: Time)
         
-        let originalValue = getEntireBerlinClock()
+        let originalValue = getEntireBerlinClock(time: Time)
         
         let expected = [Light.Yellow,Light.Off,Light.Off,Light.Off,Light.Off,Light.Off
                         ,Light.Off,Light.Off,Light.Off,Light.Off,Light.Off,Light.Off
@@ -207,7 +207,7 @@ class ClockTests: XCTestCase {
         let Time = DigitalTime(hours: 23, minutes: 59, seconds: 59)
         clock.setClockValues(time: Time)
         
-        let originalValue = getEntireBerlinClock()
+        let originalValue = getEntireBerlinClock(time: Time)
         
         let expected = [Light.Off,Light.Red,Light.Red,Light.Red,Light.Red,Light.Red
                         ,Light.Red,Light.Red,Light.Off,Light.Yellow,Light.Yellow,Light.Red
@@ -220,7 +220,7 @@ class ClockTests: XCTestCase {
         let Time = DigitalTime(hours: 16, minutes: 50, seconds: 06)
         clock.setClockValues(time: Time)
         
-        let originalValue = getEntireBerlinClock()
+        let originalValue = getEntireBerlinClock(time: Time)
         
         let expected = [Light.Yellow,Light.Red,Light.Red,Light.Red,Light.Off,Light.Red
                         ,Light.Off,Light.Off,Light.Off,Light.Yellow,Light.Yellow,Light.Red
@@ -233,7 +233,7 @@ class ClockTests: XCTestCase {
         let Time = DigitalTime(hours: 11, minutes: 37, seconds: 01)
         clock.setClockValues(time: Time)
         
-        let originalValue = getEntireBerlinClock()
+        let originalValue = getEntireBerlinClock(time: Time)
         
         let expected = [Light.Off,Light.Red,Light.Red,Light.Off,Light.Off,Light.Red
                         ,Light.Off,Light.Off,Light.Off,Light.Yellow,Light.Yellow,Light.Red
@@ -242,8 +242,8 @@ class ClockTests: XCTestCase {
         XCTAssertEqual(originalValue, expected)
     }
     
-    private func getEntireBerlinClock()-> [Light] {
-        var originalValue = clock.secondLightRow()
+    private func getEntireBerlinClock(time: DigitalTime)-> [Light] {
+        var originalValue = clock.secondLightRow(time.seconds)
         originalValue.append(contentsOf: clock.fiveHourLightRow())
         originalValue.append(contentsOf: clock.oneHourLightRow())
         originalValue.append(contentsOf: clock.fiveMinuteLightRow())
