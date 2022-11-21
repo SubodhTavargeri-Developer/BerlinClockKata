@@ -9,6 +9,7 @@ class Clock {
         static let fiveHourRow = 4
         static let oneHourRow = 4
         static let fiveMinuteRow = 11
+        static let oneMinuteRow = 4
     }
     
     func setClockValues(hours: Int, minutes: Int, seconds: Int) {
@@ -45,6 +46,12 @@ class Clock {
         for index in 1...totalNumberOfLights.count where isThirdLightYellowInFiveMinuteLightRow(index: index, totalLights: totalNumberOfLights) {
             totalNumberOfLights[index-1] = Lights.Red
         }
+        
+        return  totalNumberOfLights
+    }
+    
+    func oneMinuteLightRow()-> [Lights] {
+        let totalNumberOfLights = [Lights.Yellow,Lights.Off,Lights.Off,Lights.Off]
         
         return  totalNumberOfLights
     }
