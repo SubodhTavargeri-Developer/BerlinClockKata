@@ -11,7 +11,7 @@ class ClockTests: XCTestCase {
         
         let originalValue = clock.isSecondRowLightIlluminated()
         
-        let expected = Light.Yellow
+        let expected = [Light.Yellow]
         XCTAssertEqual(originalValue, expected)
     }
     
@@ -21,7 +21,7 @@ class ClockTests: XCTestCase {
         
         let originalValue = clock.isSecondRowLightIlluminated()
         
-        let expected = Light.Off
+        let expected = [Light.Off]
         XCTAssertEqual(originalValue, expected)
     }
     
