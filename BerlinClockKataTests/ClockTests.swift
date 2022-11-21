@@ -3,8 +3,9 @@ import XCTest
 
 class ClockTests: XCTestCase {
     
+    let clock = Clock()
+    
     func test_SecondsLightRowIsIlluminatedWithLightYellow_WhenSecondsValueIsEven() {
-        let clock = Clock()
         clock.setClockValues(hours: 0, seconds: 2)
         
         let originalValue = clock.isSecondRowLightIlluminated()
@@ -14,7 +15,6 @@ class ClockTests: XCTestCase {
     }
     
     func test_SecondsLightRowIsIlluminatedWithLightOff_WhenSecondsValueIsOdd() {
-        let clock = Clock()
         clock.setClockValues(hours: 0, seconds: 5)
         
         let originalValue = clock.isSecondRowLightIlluminated()
@@ -23,8 +23,7 @@ class ClockTests: XCTestCase {
         XCTAssertEqual(originalValue, expected)
     }
     
-    func test_OneRedLightsAreIluminatedOfFiveHourRow_WhenHourValueIsFive() {
-        let clock = Clock()
+    func test_OneRedLightsAreIluminatedOfFiveHourRow_WhenHoursValueIsFive() {
         clock.setClockValues(hours: 5, seconds: 0)
         
         let originalValue = clock.fiveHourLightRow()
@@ -33,8 +32,7 @@ class ClockTests: XCTestCase {
         XCTAssertEqual(originalValue, expected)
     }
     
-    func test_TwoRedLightsAreIlluminatedOfFiveHourRow_WhenHourValueIsTen() {
-        let clock = Clock()
+    func test_TwoRedLightsAreIlluminatedOfFiveHourRow_WhenHoursValueIsTen() {
         clock.setClockValues(hours: 10, seconds: 0)
         
         let originalValue = clock.fiveHourLightRow()
