@@ -18,7 +18,7 @@ class Clock {
         seconds = time.seconds
     }
     
-    func isSecondRowLightIlluminated()-> [Light] {
+    func secondLightRow()-> [Light] {
         return seconds%2 == 0 ? [.Yellow]: [.Off]
     }
     
