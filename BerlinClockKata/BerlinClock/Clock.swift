@@ -3,15 +3,18 @@ class Clock {
     
     private var seconds: Int = 0
     private var hours: Int = 5
+    private var minutes: Int = 0
     
     private struct numberOfLightsInARow {
         static let fiveHourRow = 4
         static let oneHourRow = 4
+        static let fiveMinuteRow = 11
     }
     
-    func setClockValues(hours: Int, seconds: Int) {
+    func setClockValues(hours: Int, minutes: Int, seconds: Int) {
         self.seconds = seconds
         self.hours = hours
+        self.minutes = minutes
     }
     
     func isSecondRowLightIlluminated()-> Lights {
@@ -21,7 +24,7 @@ class Clock {
     func fiveHourLightRow()-> [Lights] {
         let numberOfRedLights = hours/5
         
-        let totalNumberOfLights = calculateNumberOfLights(totalNumberOfLightsInARow: numberOfLightsInARow.fiveHourRow, numberOfIlluminatedLight: numberOfRedLights)
+        let totalNumberOfLights = calculateNumberOfLights(totalNumberOfLightsInARow: numberOfLightsInARow.fiveHourRow, numberOfIlluminatedLight: numberOfRedLights, illuminatedLight: .Red)
         
         return totalNumberOfLights
     }
@@ -29,18 +32,22 @@ class Clock {
     func oneHourLightRow()-> [Lights] {
         let numberOfRedLights = hours%5
         
-        let totalNumberOfLights = calculateNumberOfLights(totalNumberOfLightsInARow: numberOfLightsInARow.oneHourRow, numberOfIlluminatedLight: numberOfRedLights)
+        let totalNumberOfLights = calculateNumberOfLights(totalNumberOfLightsInARow: numberOfLightsInARow.oneHourRow, numberOfIlluminatedLight: numberOfRedLights, illuminatedLight: .Red)
         
         return totalNumberOfLights
     }
     
     func fiveMinuteLightRow()-> [Lights] {
-        return [Lights.Yellow,Lights.Off,Lights.Off,Lights.Off,Lights.Off,Lights.Off
-                ,Lights.Off,Lights.Off,Lights.Off,Lights.Off,Lights.Off]
+        let numberOfIlluminatedLights = minutes/5
+        
+        let totalNumberOfLights = calculateNumberOfLights(totalNumberOfLightsInARow: numberOfLightsInARow.fiveMinuteRow, numberOfIlluminatedLight: numberOfIlluminatedLights,illuminatedLight: .Yellow)
+        
+        return  totalNumberOfLights
     }
     
     private func calculateNumberOfLights(totalNumberOfLightsInARow: Int,
-                                         numberOfIlluminatedLight: Int)-> [Lights] {
+                                         numberOfIlluminatedLight: Int,
+                                         illuminatedLight: Lights)-> [Lights] {
         var totalNumberOfLights = [Lights]()
         
         for _ in 0..<totalNumberOfLightsInARow {
@@ -48,7 +55,7 @@ class Clock {
         }
         
         for index in 0..<numberOfIlluminatedLight {
-            totalNumberOfLights[index] = Lights.Red
+            totalNumberOfLights[index] = illuminatedLight
         }
         
         return totalNumberOfLights

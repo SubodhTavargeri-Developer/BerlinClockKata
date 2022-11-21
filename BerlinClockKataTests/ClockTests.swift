@@ -6,7 +6,7 @@ class ClockTests: XCTestCase {
     let clock = Clock()
     
     func test_SecondsLightRowIsIlluminatedWithLightYellow_WhenSecondsValueIsEven() {
-        clock.setClockValues(hours: 0, seconds: 2)
+        clock.setClockValues(hours: 0, minutes: 0, seconds: 2)
         
         let originalValue = clock.isSecondRowLightIlluminated()
         
@@ -15,7 +15,7 @@ class ClockTests: XCTestCase {
     }
     
     func test_SecondsLightRowIsIlluminatedWithLightOff_WhenSecondsValueIsOdd() {
-        clock.setClockValues(hours: 0, seconds: 5)
+        clock.setClockValues(hours: 0, minutes: 0, seconds: 5)
         
         let originalValue = clock.isSecondRowLightIlluminated()
         
@@ -24,7 +24,7 @@ class ClockTests: XCTestCase {
     }
     
     func test_OneRedLightsAreIluminatedOfFiveHourRow_WhenHoursValueIsFive() {
-        clock.setClockValues(hours: 5, seconds: 0)
+        clock.setClockValues(hours: 5, minutes: 0, seconds: 0)
         
         let originalValue = clock.fiveHourLightRow()
         
@@ -33,7 +33,7 @@ class ClockTests: XCTestCase {
     }
     
     func test_TwoRedLightsAreIlluminatedOfFiveHourRow_WhenHoursValueIsTen() {
-        clock.setClockValues(hours: 10, seconds: 0)
+        clock.setClockValues(hours: 10, minutes: 0, seconds: 0)
         
         let originalValue = clock.fiveHourLightRow()
         
@@ -42,7 +42,7 @@ class ClockTests: XCTestCase {
     }
     
     func test_FourRedLightsAreIlluminatedOfFiveHourRow_WhenHoursValueIsTwenty() {
-        clock.setClockValues(hours: 20, seconds: 0)
+        clock.setClockValues(hours: 20, minutes: 0, seconds: 0)
         
         let originalValue = clock.fiveHourLightRow()
         
@@ -51,7 +51,7 @@ class ClockTests: XCTestCase {
     }
     
     func test_ZeroRedLightsAreIlluminatedOfFiveHourRow_WhenHoursValueIsZero() {
-        clock.setClockValues(hours: 0, seconds: 0)
+        clock.setClockValues(hours: 0, minutes: 0, seconds: 0)
         
         let originalValue = clock.fiveHourLightRow()
         
@@ -60,7 +60,7 @@ class ClockTests: XCTestCase {
     }
     
     func test_OneRedLightIsIlluminatedOfOneHourRow_WhenHoursValueisOne() {
-        clock.setClockValues(hours: 1, seconds: 0)
+        clock.setClockValues(hours: 1, minutes: 1, seconds: 0)
         
         let originalValue = clock.oneHourLightRow()
         
@@ -69,7 +69,7 @@ class ClockTests: XCTestCase {
     }
     
     func test_TwoRedLightsAreIlluminatedOfOneHourRow_WhenHoursValueisTwo() {
-        clock.setClockValues(hours: 2, seconds: 0)
+        clock.setClockValues(hours: 2, minutes: 0, seconds: 0)
         
         let originalValue = clock.oneHourLightRow()
         
@@ -78,7 +78,7 @@ class ClockTests: XCTestCase {
     }
     
     func test_FourRedLightsAreIlluminatedOfOneHourRow_WhenHoursValueisFour() {
-        clock.setClockValues(hours: 4, seconds: 0)
+        clock.setClockValues(hours: 4, minutes: 0, seconds: 0)
         
         let originalValue = clock.oneHourLightRow()
         
@@ -87,9 +87,21 @@ class ClockTests: XCTestCase {
     }
     
     func test_OneYellowLightIsIlluminatedOfFiveMinuteRow_WhenMinuteValueIsFive() {
+        clock.setClockValues(hours: 4, minutes: 5, seconds: 0)
+        
         let originalValue = clock.fiveMinuteLightRow()
         
         let expected = [Lights.Yellow,Lights.Off,Lights.Off,Lights.Off,Lights.Off,
+                        Lights.Off,Lights.Off,Lights.Off,Lights.Off,Lights.Off,Lights.Off]
+        XCTAssertEqual(originalValue, expected)
+    }
+    
+    func test_TwoYellowLightIsIlluminatedOfFiveMinuteRow_WhenMinuteValueIsTen() {
+        clock.setClockValues(hours: 4, minutes: 10, seconds: 0)
+        
+        let originalValue = clock.fiveMinuteLightRow()
+        
+        let expected = [Lights.Yellow,Lights.Yellow,Lights.Off,Lights.Off,Lights.Off,
                         Lights.Off,Lights.Off,Lights.Off,Lights.Off,Lights.Off,Lights.Off]
         XCTAssertEqual(originalValue, expected)
     }
