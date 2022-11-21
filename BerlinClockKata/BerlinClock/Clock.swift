@@ -1,6 +1,5 @@
 
 class Clock {
-    private var hours: Int = 0
     private var minutes: Int = 0
     
     private struct numberOfLightsInARow {
@@ -23,7 +22,6 @@ class Clock {
     }
     
     func setClockValues(time: DigitalTime) {
-        hours = time.hours
         minutes = time.minutes
     }
     
@@ -31,7 +29,7 @@ class Clock {
         return seconds%lightRemainder.secondRemainder == 0 ? [.Yellow]: [.Off]
     }
     
-    func fiveHourLightRow()-> [Light] {
+    func fiveHourLightRow(_ hours: DigitalHours)-> [Light] {
         let numberOfRedLights = hours/lightQuotient.fiveHourQuotient
         
         let totalNumberOfLights = calculateNumberOfLights(totalNumberOfLightsInARow: numberOfLightsInARow.fiveHourRow, numberOfIlluminatedLights: numberOfRedLights, illuminatedLight: .Red)
@@ -39,7 +37,7 @@ class Clock {
         return totalNumberOfLights
     }
     
-    func oneHourLightRow()-> [Light] {
+    func oneHourLightRow(_ hours: DigitalHours)-> [Light] {
         let numberOfRedLights = hours%lightRemainder.oneHourRemainder
         
         let totalNumberOfLights = calculateNumberOfLights(totalNumberOfLightsInARow: numberOfLightsInARow.oneHourRow, numberOfIlluminatedLights: numberOfRedLights, illuminatedLight: .Red)
