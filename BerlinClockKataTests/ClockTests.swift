@@ -223,4 +223,23 @@ class ClockTests: XCTestCase {
                         ,Light.Yellow,Light.Yellow,Light.Yellow,Light.Yellow,Light.Yellow,Light.Yellow]
         XCTAssertEqual(originalValue, expected)
     }
+    
+
+    
+    func test_EntireBerlinClock_WhenTimeIsSixteenFiftySix() {
+        let Time = Time(hours: 16, minutes: 50, seconds: 06)
+        clock.setClockValues(time: Time)
+        
+        var originalValue = clock.secondLightRow()
+        originalValue.append(contentsOf: clock.fiveHourLightRow())
+        originalValue.append(contentsOf: clock.oneHourLightRow())
+        originalValue.append(contentsOf: clock.fiveMinuteLightRow())
+        originalValue.append(contentsOf: clock.oneMinuteLightRow())
+        
+        let expected = [Light.Yellow,Light.Red,Light.Red,Light.Red,Light.Off,Light.Red
+                        ,Light.Off,Light.Off,Light.Off,Light.Yellow,Light.Yellow,Light.Red
+                        ,Light.Yellow,Light.Yellow,Light.Red,Light.Yellow,Light.Yellow,Light.Red
+                        ,Light.Yellow,Light.Off,Light.Off,Light.Off,Light.Off,Light.Off]
+        XCTAssertEqual(originalValue, expected)
+    }
 }
