@@ -34,6 +34,11 @@ class Clock {
         return totalNumberOfLights
     }
     
+    func fiveMinuteLightRow()-> [Lights] {
+        return [Lights.Yellow,Lights.Off,Lights.Off,Lights.Off,Lights.Off,Lights.Off
+                ,Lights.Off,Lights.Off,Lights.Off,Lights.Off,Lights.Off]
+    }
+    
     private func calculateNumberOfLights(totalNumberOfLightsInARow: Int,
                                          numberOfIlluminatedLight: Int)-> [Lights] {
         var totalNumberOfLights = [Lights]()
