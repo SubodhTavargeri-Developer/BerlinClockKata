@@ -3,22 +3,24 @@ import XCTest
 
 class ClockTests: XCTestCase {
     
-    func test_SecondsLightRowIsIlluminated_WhenSecondsValueIsEven() {
+    func test_SecondsLightRowIsIlluminatedWithLightYellow_WhenSecondsValueIsEven() {
         let clock = Clock()
-        
         clock.setClockValues(seconds: 2)
         
-        let IsIlluminated = clock.isSecondLightIlluminated()
-        XCTAssertTrue(IsIlluminated)
+        let originalValue = clock.isSecondRowLightIlluminated()
+        
+        let expected = Lights.Yellow
+        XCTAssertEqual(originalValue, expected)
     }
     
-    func test_SecondsLightRowIsNotIlluminated_WhenSecondsValueIsOdd() {
+    func test_SecondsLightRowIsIlluminatedWithLightOff_WhenSecondsValueIsOdd() {
         let clock = Clock()
-        
         clock.setClockValues(seconds: 5)
         
-        let IsIlluminated = clock.isSecondLightIlluminated()
-        XCTAssertFalse(IsIlluminated)
+        let originalValue = clock.isSecondRowLightIlluminated()
+        
+        let expected = Lights.Off
+        XCTAssertEqual(originalValue, expected)
     }
     
 }

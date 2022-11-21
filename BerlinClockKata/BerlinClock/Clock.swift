@@ -7,7 +7,7 @@ class Clock {
         self.seconds = seconds
     }
     
-    func isSecondLightIlluminated()-> Bool {
-        return seconds%2 == 0
+    func isSecondRowLightIlluminated()-> Lights {
+        return seconds%2 == 0 ? .Yellow: .Off
     }
 }
