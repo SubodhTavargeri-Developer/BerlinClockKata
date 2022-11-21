@@ -12,6 +12,17 @@ class Clock {
         static let oneMinuteRow = 4
     }
     
+    private struct lightQuotient {
+        static let fiveHourQuotient = 5
+        static let fiveMinuteQuotient = 5
+    }
+    
+    private struct lightRemainder {
+        static let oneHourRemainder = 5
+        static let oneMinuteRemainder = 5
+        static let secondRemainder = 2
+    }
+    
     func setClockValues(time: Time) {
         hours = time.hours
         minutes = time.minutes
@@ -19,11 +30,11 @@ class Clock {
     }
     
     func secondLightRow()-> [Light] {
-        return seconds%2 == 0 ? [.Yellow]: [.Off]
+        return seconds%lightRemainder.secondRemainder == 0 ? [.Yellow]: [.Off]
     }
     
     func fiveHourLightRow()-> [Light] {
-        let numberOfRedLights = hours/5
+        let numberOfRedLights = hours/lightQuotient.fiveHourQuotient
         
         let totalNumberOfLights = calculateNumberOfLights(totalNumberOfLightsInARow: numberOfLightsInARow.fiveHourRow, numberOfIlluminatedLight: numberOfRedLights, illuminatedLight: .Red)
         
@@ -31,7 +42,7 @@ class Clock {
     }
     
     func oneHourLightRow()-> [Light] {
-        let numberOfRedLights = hours%5
+        let numberOfRedLights = hours%lightRemainder.oneHourRemainder
         
         let totalNumberOfLights = calculateNumberOfLights(totalNumberOfLightsInARow: numberOfLightsInARow.oneHourRow, numberOfIlluminatedLight: numberOfRedLights, illuminatedLight: .Red)
         
@@ -39,7 +50,7 @@ class Clock {
     }
     
     func fiveMinuteLightRow()-> [Light] {
-        let numberOfIlluminatedLights = minutes/5
+        let numberOfIlluminatedLights = minutes/lightQuotient.fiveMinuteQuotient
         
         var totalNumberOfLights = calculateNumberOfLights(totalNumberOfLightsInARow: numberOfLightsInARow.fiveMinuteRow, numberOfIlluminatedLight: numberOfIlluminatedLights,illuminatedLight: .Yellow)
         
@@ -51,7 +62,7 @@ class Clock {
     }
     
     func oneMinuteLightRow()-> [Light] {
-        let numberOfYellowLights = minutes%5
+        let numberOfYellowLights = minutes%lightRemainder.oneMinuteRemainder
         
         let totalNumberOfLights = calculateNumberOfLights(totalNumberOfLightsInARow: numberOfLightsInARow.oneMinuteRow, numberOfIlluminatedLight: numberOfYellowLights, illuminatedLight: .Yellow)
         
@@ -65,6 +76,7 @@ class Clock {
     private func calculateNumberOfLights(totalNumberOfLightsInARow: Int,
                                          numberOfIlluminatedLight: Int,
                                          illuminatedLight: Light)-> [Light] {
+        
         var totalNumberOfLights = [Light]()
         
         for _ in 0..<totalNumberOfLightsInARow {
@@ -74,7 +86,7 @@ class Clock {
         for index in 0..<numberOfIlluminatedLight {
             totalNumberOfLights[index] = illuminatedLight
         }
-        
+    
         return totalNumberOfLights
     }
     
