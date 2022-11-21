@@ -2,7 +2,7 @@
 class Clock {
     
     private var seconds: Int = 0
-    private var hours: Int = 5
+    private var hours: Int = 0
     private var minutes: Int = 0
     
     private struct numberOfLightsInARow {
