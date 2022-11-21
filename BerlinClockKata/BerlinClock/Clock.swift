@@ -12,10 +12,10 @@ class Clock {
         static let oneMinuteRow = 4
     }
     
-    func setClockValues(hours: Int, minutes: Int, seconds: Int) {
-        self.seconds = seconds
-        self.hours = hours
-        self.minutes = minutes
+    func setClockValues(time: Time) {
+        hours = time.hours
+        minutes = time.minutes
+        seconds = time.seconds
     }
     
     func isSecondRowLightIlluminated()-> Lights {
