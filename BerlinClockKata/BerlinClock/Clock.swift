@@ -4,6 +4,11 @@ class Clock {
     private var seconds: Int = 0
     private var hours: Int = 5
     
+    private struct numberOfLightsInARow {
+        static let fiveHourRow = 4
+        static let oneHourRow = 4
+    }
+    
     func setClockValues(hours: Int, seconds: Int) {
         self.seconds = seconds
         self.hours = hours
@@ -16,7 +21,7 @@ class Clock {
     func fiveHourLightRow()-> [Lights] {
         let numberOfRedLights = hours/5
         
-        let totalNumberOfLights = calculateTotalNumberOfIlluminatedLights(totalNumberOfLightsInARow: 4, numberOfIlluminatedLight: numberOfRedLights)
+        let totalNumberOfLights = calculateNumberOfLights(totalNumberOfLightsInARow: numberOfLightsInARow.fiveHourRow, numberOfIlluminatedLight: numberOfRedLights)
         
         return totalNumberOfLights
     }
@@ -24,13 +29,13 @@ class Clock {
     func oneHourLightRow()-> [Lights] {
         let numberOfRedLights = hours%5
         
-        let totalNumberOfLights = calculateTotalNumberOfIlluminatedLights(totalNumberOfLightsInARow: 4, numberOfIlluminatedLight: numberOfRedLights)
+        let totalNumberOfLights = calculateNumberOfLights(totalNumberOfLightsInARow: numberOfLightsInARow.oneHourRow, numberOfIlluminatedLight: numberOfRedLights)
         
         return totalNumberOfLights
     }
     
-    private func calculateTotalNumberOfIlluminatedLights(totalNumberOfLightsInARow: Int,
-                                                         numberOfIlluminatedLight: Int)-> [Lights] {
+    private func calculateNumberOfLights(totalNumberOfLightsInARow: Int,
+                                         numberOfIlluminatedLight: Int)-> [Lights] {
         var totalNumberOfLights = [Lights]()
         
         for _ in 0..<totalNumberOfLightsInARow {
