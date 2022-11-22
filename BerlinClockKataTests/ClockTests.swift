@@ -10,7 +10,7 @@ class ClockTests: XCTestCase {
         
         let originalValue = clock.computeBerlinClockTime(for: Time).secondsLight
         
-        let expected = [Light.Yellow]
+        let expected = Light.Yellow
         XCTAssertEqual(originalValue, expected)
     }
     
@@ -19,7 +19,7 @@ class ClockTests: XCTestCase {
         
         let originalValue = clock.computeBerlinClockTime(for: Time).secondsLight
         
-        let expected = [Light.Off]
+        let expected = Light.Off
         XCTAssertEqual(originalValue, expected)
     }
     
@@ -90,7 +90,7 @@ class ClockTests: XCTestCase {
         let Time = DigitalTime(hours: 0, minutes: 5, seconds: 0)
         
         let originalValue = clock.computeBerlinClockTime(for: Time).fiveMinutesLights
-                
+        
         let expected = [Light.Yellow,Light.Off,Light.Off,Light.Off,Light.Off,
                         Light.Off,Light.Off,Light.Off,Light.Off,Light.Off,Light.Off]
         XCTAssertEqual(originalValue, expected)
@@ -214,22 +214,22 @@ class ClockTests: XCTestCase {
     func test_EntireBerlinClock_WhenTimeIsElevenThirtySevenZeroOne() {
         let Time = DigitalTime(hours: 11, minutes: 37, seconds: 01)
         
-        let originalValue = clock.computeBerlinClockTime(for: Time)
-        var computeValue = originalValue.secondsLight
-        computeValue.append(contentsOf: originalValue.fiveHoursLights)
-        computeValue.append(contentsOf: originalValue.oneHoursLights)
-        computeValue.append(contentsOf: originalValue.fiveMinutesLights)
-        computeValue.append(contentsOf: originalValue.oneMinutesLights)
+        let computedValue = clock.computeBerlinClockTime(for: Time)
+        let originalValue = getEntireBerlinClock(berlinTime: computedValue)
         
         let expected = [Light.Off,Light.Red,Light.Red,Light.Off,Light.Off,Light.Red
                         ,Light.Off,Light.Off,Light.Off,Light.Yellow,Light.Yellow,Light.Red
                         ,Light.Yellow,Light.Yellow,Light.Red,Light.Yellow,Light.Off,Light.Off
                         ,Light.Off,Light.Off,Light.Yellow,Light.Yellow,Light.Off,Light.Off]
-        XCTAssertEqual(computeValue, expected)
+        XCTAssertEqual(originalValue, expected)
     }
     
     private func getEntireBerlinClock(berlinTime: BerlinClockTime)-> [Light] {
-        var computeValue = berlinTime.secondsLight
+        let berlinTimeSecondsLight = berlinTime.secondsLight
+        var computeValueForSecondsLight = [Light]()
+        computeValueForSecondsLight.append(berlinTimeSecondsLight)
+        var computeValue = [Light]()
+        computeValue.append(contentsOf: computeValueForSecondsLight)
         computeValue.append(contentsOf: berlinTime.fiveHoursLights)
         computeValue.append(contentsOf: berlinTime.oneHoursLights)
         computeValue.append(contentsOf: berlinTime.fiveMinutesLights)

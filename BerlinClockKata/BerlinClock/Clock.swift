@@ -28,8 +28,8 @@ class Clock {
                         secondsLight: secondLightRow(digitalTime.seconds))
     }
     
-    private func secondLightRow(_ seconds: DigitalSeconds)-> [Light] {
-        return seconds%lightRemainder.secondRemainder == 0 ? [.Yellow]: [.Off]
+    private func secondLightRow(_ seconds: DigitalSeconds)-> Light {
+        return seconds%lightRemainder.secondRemainder == 0 ? .Yellow: .Off
     }
     
     private func fiveHourLightRow(_ hours: DigitalHours)-> [Light] {
@@ -68,7 +68,8 @@ class Clock {
         return totalNumberOfLights
     }
     
-    private func isThirdLightYellowInFiveMinuteLightRow(index: Int, totalLights: [Light])-> Bool {
+    private func isThirdLightYellowInFiveMinuteLightRow(index: Int,
+                                                        totalLights: [Light])-> Bool {
         return index%lightRemainder.thirdLightInFiveMinuteRemainder == 0 && totalLights[index-1] == .Yellow
     }
     

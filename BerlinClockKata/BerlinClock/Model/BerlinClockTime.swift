@@ -3,5 +3,5 @@ struct BerlinClockTime {
     let oneHoursLights: [Light]
     let fiveMinutesLights: [Light]
     let oneMinutesLights: [Light]
-    let secondsLight: [Light]
+    let secondsLight: Light
 }
