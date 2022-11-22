@@ -14,21 +14,21 @@ class BerlinClockTimeBuilder {
         return self
     }
     
-    func withoneHoursLights(_ lights: [Light]) -> Self {
+    func withOneHoursLights(_ lights: [Light]) -> Self {
         oneHourLights = lights
         return self
     }
     
-    func withfiveMinutesLights(_ lights: [Light]) -> Self {
+    func withFiveMinutesLights(_ lights: [Light]) -> Self {
         fiveMinuteLights = lights
         return self
     }
     
-    func withoneMinuteLights(_ lights: [Light]) -> Self {
+    func withOneMinuteLights(_ lights: [Light]) -> Self {
         oneMinuteLights = lights
         return self
     }
-    func withsecondLight(_ light: Light) -> Self {
+    func withSecondLight(_ light: Light) -> Self {
         secondLight = light
         return self
     }

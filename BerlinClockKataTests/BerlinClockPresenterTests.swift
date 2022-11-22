@@ -20,7 +20,7 @@ class BerlinClockPresenterTests: XCTestCase {
     }
     
     func test_ComputedFiveHourLightBerlinClockTimeIsEqualToMock_WhenPresenterSendsDigitalTimeToClock() {
-        let berlinClockTime =  BerlinClockTimeBuilder()
+        let berlinClockTime = BerlinClockTimeBuilder()
             .withFiveHourLights([.Red, .Red, .Off, .Off])
             .build()
         clock.mockBerlinClockTime(berlinClockTime: berlinClockTime)
