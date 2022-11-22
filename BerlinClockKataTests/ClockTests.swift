@@ -190,13 +190,14 @@ class ClockTests: XCTestCase {
     func test_EntireBerlinClock_WhenTimeIsTwentyThreeFiftyNineFiftyNine() {
         let Time = DigitalTime(hours: 23, minutes: 59, seconds: 59)
         
-        let computedValue = clock.computeBerlinClockTime(for: Time)
-        let originalValue = getEntireBerlinClock(berlinTime: computedValue)
+        let originalValue = clock.computeBerlinClockTime(for: Time)
         
-        let expected = [Light.Off,Light.Red,Light.Red,Light.Red,Light.Red,Light.Red
-                        ,Light.Red,Light.Red,Light.Off,Light.Yellow,Light.Yellow,Light.Red
-                        ,Light.Yellow,Light.Yellow,Light.Red,Light.Yellow,Light.Yellow,Light.Red
-                        ,Light.Yellow,Light.Yellow,Light.Yellow,Light.Yellow,Light.Yellow,Light.Yellow]
+        let expected = BerlinClockTimeBuilder().withSecondLight(.Off)
+            .withFiveHourLights([.Red, .Red, .Red, .Red])
+            .withOneHoursLights([.Red, .Red, .Red, .Off])
+            .withFiveMinutesLights([.Yellow, .Yellow, .Red, .Yellow, .Yellow, .Red,
+                                    .Yellow, .Yellow, .Red, .Yellow, .Yellow])
+            .withOneMinuteLights([.Yellow, .Yellow, .Yellow, .Yellow]).build()
         XCTAssertEqual(originalValue, expected)
     }
     
