@@ -5,7 +5,7 @@ class BerlinClockPresenterTests: XCTestCase {
     
     func test_ViewTitleIsDisplayed_WhenPresenterLoads() {
         let view = BerlinClockViewControllerSpy()
-        let clock = ClockSpy()
+        let clock = ClockMock()
         let presenter = BerlinClockPresenter(view: view, clock: clock)
         
         presenter.loadPresenter()
@@ -15,7 +15,8 @@ class BerlinClockPresenterTests: XCTestCase {
     
     func test_ComputedFiveHourLightBerlinClockTimeIsEqualToMock_WhenPresenterSendsDigitalTimeToClock() {
         let view = BerlinClockViewControllerSpy()
-        let clock = ClockSpy()
+        let clock = ClockMock()
+        clock.mockBerlinClockTime(berlinClockTime: BerlinClockMock.getBerlinClockTime())
         let presenter = BerlinClockPresenter(view: view, clock: clock)
         let digitalClock = DigitalTime(hours: 2, minutes: 2, seconds: 2)
         
