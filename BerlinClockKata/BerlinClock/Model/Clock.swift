@@ -1,5 +1,5 @@
 class Clock: ClockProtocol {
-   
+    
     private struct numberOfLightsInARow {
         static let fiveHourRow = 4
         static let oneHourRow = 4
@@ -20,11 +20,12 @@ class Clock: ClockProtocol {
     }
     
     func computeBerlinClockTime(for digitalTime: DigitalTime) -> BerlinClockTime {
-        BerlinClockTime(fiveHoursLights: fiveHourLightRow(digitalTime.hours),
+        BerlinClockTime(secondsLight: secondLightRow(digitalTime.seconds),
+                        fiveHoursLights: fiveHourLightRow(digitalTime.hours),
                         oneHoursLights: oneHourLightRow(digitalTime.hours),
                         fiveMinutesLights: fiveMinuteLightRow(digitalTime.minutes),
-                        oneMinutesLights: oneMinuteLightRow(digitalTime.minutes),
-                        secondsLight: secondLightRow(digitalTime.seconds))
+                        oneMinutesLights: oneMinuteLightRow(digitalTime.minutes)
+        )
     }
     
     private func secondLightRow(_ seconds: DigitalSeconds)-> Light {
@@ -66,8 +67,8 @@ class Clock: ClockProtocol {
         let numberOfYellowLights = minutes%lightRemainder.oneMinuteRemainder
         
         let totalNumberOfLights = calculateNumberOfLights(totalNumberOfLightsInARow:numberOfLightsInARow.oneMinuteRow,
-            numberOfIlluminatedLights: numberOfYellowLights,
-            illuminatedLight: .Yellow)
+                                                          numberOfIlluminatedLights: numberOfYellowLights,
+                                                          illuminatedLight: .Yellow)
         
         return totalNumberOfLights
     }
@@ -90,7 +91,7 @@ class Clock: ClockProtocol {
         for index in 0..<numberOfIlluminatedLights {
             totalNumberOfLights[index] = illuminatedLight
         }
-    
+        
         return totalNumberOfLights
     }
     

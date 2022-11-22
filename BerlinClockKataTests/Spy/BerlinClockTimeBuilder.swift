@@ -34,11 +34,10 @@ class BerlinClockTimeBuilder {
     }
     
     func build() -> BerlinClockTime {
-        
-        return BerlinClockTime(fiveHoursLights: fiveHourLights,
+        return BerlinClockTime(secondsLight: secondLight,
+                               fiveHoursLights: fiveHourLights,
                                oneHoursLights: oneHourLights,
                                fiveMinutesLights: fiveMinuteLights,
-                               oneMinutesLights: oneMinuteLights,
-                               secondsLight: secondLight)
+                               oneMinutesLights: oneMinuteLights)
     }
 }
