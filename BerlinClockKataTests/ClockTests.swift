@@ -218,26 +218,15 @@ class ClockTests: XCTestCase {
     func test_EntireBerlinClock_WhenTimeIsElevenThirtySevenZeroOne() {
         let Time = DigitalTime(hours: 11, minutes: 37, seconds: 01)
         
-        let computedValue = clock.computeBerlinClockTime(for: Time)
-        let originalValue = getEntireBerlinClock(berlinTime: computedValue)
+        let originalValue = clock.computeBerlinClockTime(for: Time)
         
-        let expected = [Light.Off,Light.Red,Light.Red,Light.Off,Light.Off,Light.Red
-                        ,Light.Off,Light.Off,Light.Off,Light.Yellow,Light.Yellow,Light.Red
-                        ,Light.Yellow,Light.Yellow,Light.Red,Light.Yellow,Light.Off,Light.Off
-                        ,Light.Off,Light.Off,Light.Yellow,Light.Yellow,Light.Off,Light.Off]
+        let expected = BerlinClockTimeBuilder().withSecondLight(.Off)
+            .withFiveHourLights([.Red, .Red, .Off, .Off])
+            .withOneHoursLights([.Red, .Off, .Off, .Off])
+            .withFiveMinutesLights([.Yellow, .Yellow, .Red, .Yellow, .Yellow, .Red,
+                                    .Yellow, .Off, .Off, .Off, .Off])
+            .withOneMinuteLights([.Yellow, .Yellow, .Off, .Off]).build()
         XCTAssertEqual(originalValue, expected)
     }
     
-    private func getEntireBerlinClock(berlinTime: BerlinClockTime)-> [Light] {
-        let berlinTimeSecondsLight = berlinTime.secondsLight
-        var computeValueForSecondsLight = [Light]()
-        computeValueForSecondsLight.append(berlinTimeSecondsLight)
-        var computeValue = [Light]()
-        computeValue.append(contentsOf: computeValueForSecondsLight)
-        computeValue.append(contentsOf: berlinTime.fiveHoursLights)
-        computeValue.append(contentsOf: berlinTime.oneHoursLights)
-        computeValue.append(contentsOf: berlinTime.fiveMinutesLights)
-        computeValue.append(contentsOf: berlinTime.oneMinutesLights)
-        return computeValue
-    }
 }
