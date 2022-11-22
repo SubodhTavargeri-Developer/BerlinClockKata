@@ -204,13 +204,14 @@ class ClockTests: XCTestCase {
     func test_EntireBerlinClock_WhenTimeIsSixteenFiftySix() {
         let Time = DigitalTime(hours: 16, minutes: 50, seconds: 06)
         
-        let computedValue = clock.computeBerlinClockTime(for: Time)
-        let originalValue = getEntireBerlinClock(berlinTime: computedValue)
+        let originalValue = clock.computeBerlinClockTime(for: Time)
         
-        let expected = [Light.Yellow,Light.Red,Light.Red,Light.Red,Light.Off,Light.Red
-                        ,Light.Off,Light.Off,Light.Off,Light.Yellow,Light.Yellow,Light.Red
-                        ,Light.Yellow,Light.Yellow,Light.Red,Light.Yellow,Light.Yellow,Light.Red
-                        ,Light.Yellow,Light.Off,Light.Off,Light.Off,Light.Off,Light.Off]
+        let expected = BerlinClockTimeBuilder().withSecondLight(.Yellow)
+            .withFiveHourLights([.Red, .Red, .Red, .Off])
+            .withOneHoursLights([.Red, .Off, .Off, .Off])
+            .withFiveMinutesLights([.Yellow, .Yellow, .Red, .Yellow, .Yellow, .Red,
+                                    .Yellow, .Yellow, .Red, .Yellow, .Off])
+            .withOneMinuteLights([.Off, .Off, .Off, .Off]).build()
         XCTAssertEqual(originalValue, expected)
     }
     
