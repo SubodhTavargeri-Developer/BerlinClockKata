@@ -16,14 +16,16 @@ class BerlinClockPresenterTests: XCTestCase {
     func test_ComputedFiveHourLightBerlinClockTimeIsEqualToMock_WhenPresenterSendsDigitalTimeToClock() {
         let view = BerlinClockViewControllerSpy()
         let clock = ClockMock()
-        clock.mockBerlinClockTime(berlinClockTime: BerlinClockMock.getBerlinClockTime())
+        let berlinClockTime =  BerlinClockTimeBuilder()
+            .withFiveHourLights([.Red, .Red, .Off, .Off])
+            .build()
+        clock.mockBerlinClockTime(berlinClockTime: berlinClockTime)
         let presenter = BerlinClockPresenter(view: view, clock: clock)
         let digitalClock = DigitalTime(hours: 2, minutes: 2, seconds: 2)
         
         presenter.displayBerlinClock(digitalTime: digitalClock)
         
-        let expected = BerlinClockMock.getBerlinClockTime()
-        XCTAssertEqual(view.clock, expected)
+        XCTAssertEqual(view.clock, berlinClockTime)
     }
 }
 extension BerlinClockTime: Equatable {
