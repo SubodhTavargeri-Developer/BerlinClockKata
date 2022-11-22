@@ -23,6 +23,15 @@ class BerlinClockPresenterTests: XCTestCase {
         presenter.displayBerlinClock(digitalTime: digitalClock)
         
         let expected = BerlinClockMock.getBerlinClockTime()
-        XCTAssertEqual(view.clock?.fiveHoursLights, expected.fiveHoursLights)
+        XCTAssertEqual(view.clock, expected)
+    }
+}
+extension BerlinClockTime: Equatable {
+    public static func == (lhs: BerlinClockTime, rhs: BerlinClockTime) -> Bool {
+        return lhs.secondsLight == rhs.secondsLight
+        && lhs.fiveHoursLights == rhs.fiveHoursLights
+        && lhs.oneHoursLights == rhs.oneHoursLights
+        && lhs.fiveMinutesLights == rhs.fiveMinutesLights
+        && lhs.oneMinutesLights == rhs.oneMinutesLights
     }
 }

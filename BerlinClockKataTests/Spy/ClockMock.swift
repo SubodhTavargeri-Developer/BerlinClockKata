@@ -2,11 +2,10 @@
 
 class ClockMock: ClockProtocol {
     
-    var berlinClockTime: BerlinClockTime?
+    private var berlinClockTime: BerlinClockTime = BerlinClockTimeBuilder().build()
     
     func computeBerlinClockTime(for digitalTime: DigitalTime) -> BerlinClockTime {
-        let berlinClock = BerlinClockMock.getBerlinClockTime()
-        return berlinClock
+        return berlinClockTime
     }
     
     func mockBerlinClockTime(berlinClockTime: BerlinClockTime) {

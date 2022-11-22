@@ -27,6 +27,7 @@
 		5B75A598292CB20F0083F822 /* ClockMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B75A597292CB20F0083F822 /* ClockMock.swift */; };
 		5B75A59A292CCCA90083F822 /* BerlinClockMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B75A599292CCCA90083F822 /* BerlinClockMock.swift */; };
 		5B75A59E292CDA0E0083F822 /* BerlinClockPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B75A59D292CDA0E0083F822 /* BerlinClockPresenterProtocol.swift */; };
+		5B75A5A0292D02C60083F822 /* BerlinClockTimeBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B75A59F292D02C60083F822 /* BerlinClockTimeBuilder.swift */; };
 		5BA6B286292C122E001EE2F2 /* BerlinClockTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA6B285292C122E001EE2F2 /* BerlinClockTime.swift */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +73,7 @@
 		5B75A597292CB20F0083F822 /* ClockMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockMock.swift; sourceTree = "<group>"; };
 		5B75A599292CCCA90083F822 /* BerlinClockMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BerlinClockMock.swift; sourceTree = "<group>"; };
 		5B75A59D292CDA0E0083F822 /* BerlinClockPresenterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BerlinClockPresenterProtocol.swift; sourceTree = "<group>"; };
+		5B75A59F292D02C60083F822 /* BerlinClockTimeBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BerlinClockTimeBuilder.swift; sourceTree = "<group>"; };
 		5BA6B285292C122E001EE2F2 /* BerlinClockTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BerlinClockTime.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -199,6 +201,7 @@
 				5B75A595292CA7F20083F822 /* BerlinClockViewControllerSpy.swift */,
 				5B75A597292CB20F0083F822 /* ClockMock.swift */,
 				5B75A599292CCCA90083F822 /* BerlinClockMock.swift */,
+				5B75A59F292D02C60083F822 /* BerlinClockTimeBuilder.swift */,
 			);
 			path = Spy;
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B75A598292CB20F0083F822 /* ClockMock.swift in Sources */,
+				5B75A5A0292D02C60083F822 /* BerlinClockTimeBuilder.swift in Sources */,
 				5B75A596292CA7F20083F822 /* BerlinClockViewControllerSpy.swift in Sources */,
 				5B2B0776292B469900D31E6A /* ClockTests.swift in Sources */,
 				5B75A59A292CCCA90083F822 /* BerlinClockMock.swift in Sources */,
