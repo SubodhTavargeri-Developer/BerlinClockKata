@@ -5,3 +5,9 @@ struct BerlinClockTime {
     let oneMinutesLights: [Light]
     let secondsLight: Light
 }
+
+enum Light {
+    case Off
+    case Red
+    case Yellow
+}
