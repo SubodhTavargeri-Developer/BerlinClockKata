@@ -26,6 +26,7 @@
 		5B75A596292CA7F20083F822 /* BerlinClockViewControllerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B75A595292CA7F20083F822 /* BerlinClockViewControllerSpy.swift */; };
 		5B75A598292CB20F0083F822 /* ClockSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B75A597292CB20F0083F822 /* ClockSpy.swift */; };
 		5B75A59A292CCCA90083F822 /* BerlinClockMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B75A599292CCCA90083F822 /* BerlinClockMock.swift */; };
+		5B75A59E292CDA0E0083F822 /* BerlinClockPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B75A59D292CDA0E0083F822 /* BerlinClockPresenterProtocol.swift */; };
 		5BA6B286292C122E001EE2F2 /* BerlinClockTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA6B285292C122E001EE2F2 /* BerlinClockTime.swift */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +71,7 @@
 		5B75A595292CA7F20083F822 /* BerlinClockViewControllerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BerlinClockViewControllerSpy.swift; sourceTree = "<group>"; };
 		5B75A597292CB20F0083F822 /* ClockSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockSpy.swift; sourceTree = "<group>"; };
 		5B75A599292CCCA90083F822 /* BerlinClockMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BerlinClockMock.swift; sourceTree = "<group>"; };
+		5B75A59D292CDA0E0083F822 /* BerlinClockPresenterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BerlinClockPresenterProtocol.swift; sourceTree = "<group>"; };
 		5BA6B285292C122E001EE2F2 /* BerlinClockTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BerlinClockTime.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -175,6 +177,7 @@
 		5B75A58E292CA66F0083F822 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				5B75A59D292CDA0E0083F822 /* BerlinClockPresenterProtocol.swift */,
 				5B75A58F292CA6820083F822 /* BerlinClockPresenter.swift */,
 			);
 			path = Presenter;
@@ -341,6 +344,7 @@
 				5B2B0779292B496C00D31E6A /* Clock.swift in Sources */,
 				5B2B0748292B440300D31E6A /* SceneDelegate.swift in Sources */,
 				5BA6B286292C122E001EE2F2 /* BerlinClockTime.swift in Sources */,
+				5B75A59E292CDA0E0083F822 /* BerlinClockPresenterProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
