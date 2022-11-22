@@ -1,5 +1,5 @@
 
-class Clock {
+class Clock: ClockProtocol {
    
     private struct numberOfLightsInARow {
         static let fiveHourRow = 4
