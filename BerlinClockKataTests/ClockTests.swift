@@ -62,7 +62,7 @@ class ClockTests: XCTestCase {
     func test_OneRedLightIsIlluminatedOfOneHourRow_WhenHoursValueisOne() {
         let Time = DigitalTime(hours: 1, minutes: 1, seconds: 0)
         
-        let originalValue = clock.oneHourLightRow(Time.hours)
+        let originalValue = clock.computeBerlinClockTime(for: Time).oneHoursLights
         
         let expected = [Light.Red,Light.Off,Light.Off,Light.Off]
         XCTAssertEqual(originalValue, expected)
@@ -71,7 +71,7 @@ class ClockTests: XCTestCase {
     func test_TwoRedLightsAreIlluminatedOfOneHourRow_WhenHoursValueisTwo() {
         let Time = DigitalTime(hours: 2, minutes: 0, seconds: 0)
         
-        let originalValue = clock.oneHourLightRow(Time.hours)
+        let originalValue = clock.computeBerlinClockTime(for: Time).oneHoursLights
         
         let expected = [Light.Red,Light.Red,Light.Off,Light.Off]
         XCTAssertEqual(originalValue, expected)
@@ -80,7 +80,7 @@ class ClockTests: XCTestCase {
     func test_FourRedLightsAreIlluminatedOfOneHourRow_WhenHoursValueisFour() {
         let Time = DigitalTime(hours: 4, minutes: 0, seconds: 0)
         
-        let originalValue = clock.oneHourLightRow(Time.hours)
+        let originalValue = clock.computeBerlinClockTime(for: Time).oneHoursLights
         
         let expected = [Light.Red,Light.Red,Light.Red,Light.Red]
         XCTAssertEqual(originalValue, expected)

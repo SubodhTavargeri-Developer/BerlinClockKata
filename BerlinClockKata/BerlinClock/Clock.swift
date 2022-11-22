@@ -40,7 +40,7 @@ class Clock {
         return totalNumberOfLights
     }
     
-    func oneHourLightRow(_ hours: DigitalHours)-> [Light] {
+    private func oneHourLightRow(_ hours: DigitalHours)-> [Light] {
         let numberOfRedLights = hours%lightRemainder.oneHourRemainder
         
         let totalNumberOfLights = calculateNumberOfLights(totalNumberOfLightsInARow: numberOfLightsInARow.oneHourRow, numberOfIlluminatedLights: numberOfRedLights, illuminatedLight: .Red)
