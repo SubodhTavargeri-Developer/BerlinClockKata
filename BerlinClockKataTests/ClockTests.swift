@@ -175,13 +175,15 @@ class ClockTests: XCTestCase {
     func test_EntireBerlinClock_WhenTimeIsZeroZeroZero() {
         let Time = DigitalTime(hours: 0, minutes: 0, seconds: 0)
         
-        let computedValue = clock.computeBerlinClockTime(for: Time)
-        let originalValue = getEntireBerlinClock(berlinTime: computedValue)
+        let originalValue = clock.computeBerlinClockTime(for: Time)
         
-        let expected = [Light.Yellow,Light.Off,Light.Off,Light.Off,Light.Off,Light.Off
-                        ,Light.Off,Light.Off,Light.Off,Light.Off,Light.Off,Light.Off
-                        ,Light.Off,Light.Off,Light.Off,Light.Off,Light.Off,Light.Off
-                        ,Light.Off,Light.Off,Light.Off,Light.Off,Light.Off,Light.Off]
+        let expected = BerlinClockTimeBuilder().withSecondLight(.Yellow)
+            .withFiveHourLights([.Off, .Off, .Off, .Off])
+            .withOneHoursLights([.Off, .Off, .Off, .Off])
+            .withFiveMinutesLights([.Off, .Off, .Off, .Off, .Off, .Off,
+                                    .Off, .Off, .Off, .Off, .Off])
+            .withOneMinuteLights([.Off, .Off, .Off, .Off])
+            .build()
         XCTAssertEqual(originalValue, expected)
     }
     
