@@ -89,8 +89,8 @@ class ClockTests: XCTestCase {
     func test_OneYellowLightIsIlluminatedOfFiveMinuteRow_WhenMinuteValueIsFive() {
         let Time = DigitalTime(hours: 0, minutes: 5, seconds: 0)
         
-        let originalValue = clock.fiveMinuteLightRow(Time.minutes)
-        
+        let originalValue = clock.computeBerlinClockTime(for: Time).fiveMinutesLights
+                
         let expected = [Light.Yellow,Light.Off,Light.Off,Light.Off,Light.Off,
                         Light.Off,Light.Off,Light.Off,Light.Off,Light.Off,Light.Off]
         XCTAssertEqual(originalValue, expected)
@@ -99,7 +99,7 @@ class ClockTests: XCTestCase {
     func test_TwoYellowLightIsIlluminatedOfFiveMinuteRow_WhenMinuteValueIsTen() {
         let Time = DigitalTime(hours: 0, minutes: 10, seconds: 0)
         
-        let originalValue = clock.fiveMinuteLightRow(Time.minutes)
+        let originalValue = clock.computeBerlinClockTime(for: Time).fiveMinutesLights
         
         let expected = [Light.Yellow,Light.Yellow,Light.Off,Light.Off,Light.Off,
                         Light.Off,Light.Off,Light.Off,Light.Off,Light.Off,Light.Off]
@@ -109,7 +109,7 @@ class ClockTests: XCTestCase {
     func test_TwoYellowLightAndOneRedLightIsIlluminatedOfFiveMinuteRow_WhenMinuteValueIsFifteen() {
         let Time = DigitalTime(hours: 0, minutes: 15, seconds: 0)
         
-        let originalValue = clock.fiveMinuteLightRow(Time.minutes)
+        let originalValue = clock.computeBerlinClockTime(for: Time).fiveMinutesLights
         
         let expected = [Light.Yellow,Light.Yellow,Light.Red,Light.Off,Light.Off,
                         Light.Off,Light.Off,Light.Off,Light.Off,Light.Off,Light.Off]
@@ -119,7 +119,7 @@ class ClockTests: XCTestCase {
     func test_EightYellowLightAndThreeRedLightIAreIlluminatedOfFiveMinuteRow_WhenMinuteValueIsFifyNine() {
         let Time = DigitalTime(hours: 0, minutes: 59, seconds: 0)
         
-        let originalValue = clock.fiveMinuteLightRow(Time.minutes)
+        let originalValue = clock.computeBerlinClockTime(for: Time).fiveMinutesLights
         
         let expected = [Light.Yellow,Light.Yellow,Light.Red,Light.Yellow,Light.Yellow,
                         Light.Red,Light.Yellow,Light.Yellow,Light.Red,Light.Yellow,Light.Yellow]
@@ -129,7 +129,7 @@ class ClockTests: XCTestCase {
     func test_ZeroYellowLightAndZeroRedLightAreIlluminatedOfFiveMinuteRow_WhenMinuteValueIsZero() {
         let Time = DigitalTime(hours: 0, minutes: 0, seconds: 0)
         
-        let originalValue = clock.fiveMinuteLightRow(Time.minutes)
+        let originalValue = clock.computeBerlinClockTime(for: Time).fiveMinutesLights
         
         let expected = [Light.Off,Light.Off,Light.Off,Light.Off,Light.Off,
                         Light.Off,Light.Off,Light.Off,Light.Off,Light.Off,Light.Off]

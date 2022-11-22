@@ -48,7 +48,7 @@ class Clock {
         return totalNumberOfLights
     }
     
-    func fiveMinuteLightRow(_ minutes: DigitalMinutes)-> [Light] {
+    private func fiveMinuteLightRow(_ minutes: DigitalMinutes)-> [Light] {
         let numberOfIlluminatedLights = minutes/lightQuotient.fiveMinuteQuotient
         
         var totalNumberOfLights = calculateNumberOfLights(totalNumberOfLightsInARow: numberOfLightsInARow.fiveMinuteRow, numberOfIlluminatedLights: numberOfIlluminatedLights,illuminatedLight: .Yellow)
