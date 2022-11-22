@@ -1,4 +1,4 @@
-class BerlinClockPresenter {
+class BerlinClockPresenter: BerlinClockPresenterProtocol {
     
     private weak var view: BerlinClockViewProtocol?
     private let clock: ClockProtocol
@@ -14,7 +14,7 @@ class BerlinClockPresenter {
     }
     
     func displayBerlinClock(digitalTime: DigitalTime) {
-       let berlinClock = clock.computeBerlinClockTime(for: digitalTime)
+        let berlinClock = clock.computeBerlinClockTime(for: digitalTime)
         view?.displayBerlinClockView(berlinClock: berlinClock)
     }
     
