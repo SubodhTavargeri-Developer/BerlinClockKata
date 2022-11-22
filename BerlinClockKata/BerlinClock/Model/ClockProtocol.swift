@@ -1,4 +1,3 @@
-
 protocol ClockProtocol {
-    func computeBerlinClockTime(for digitalTime: DigitalTime) -> BerlinClockTime
+    func computeBerlinClockTime(for digitalTime: DigitalTime)-> BerlinClockTime
 }

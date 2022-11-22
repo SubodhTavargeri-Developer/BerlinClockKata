@@ -1,4 +1,3 @@
-
 class Clock: ClockProtocol {
    
     private struct numberOfLightsInARow {
@@ -43,7 +42,8 @@ class Clock: ClockProtocol {
     private func oneHourLightRow(_ hours: DigitalHours)-> [Light] {
         let numberOfRedLights = hours%lightRemainder.oneHourRemainder
         
-        let totalNumberOfLights = calculateNumberOfLights(totalNumberOfLightsInARow: numberOfLightsInARow.oneHourRow, numberOfIlluminatedLights: numberOfRedLights, illuminatedLight: .Red)
+        let totalNumberOfLights = calculateNumberOfLights(totalNumberOfLightsInARow: numberOfLightsInARow.oneHourRow,
+                                                          numberOfIlluminatedLights: numberOfRedLights, illuminatedLight: .Red)
         
         return totalNumberOfLights
     }
@@ -51,7 +51,9 @@ class Clock: ClockProtocol {
     private func fiveMinuteLightRow(_ minutes: DigitalMinutes)-> [Light] {
         let numberOfIlluminatedLights = minutes/lightQuotient.fiveMinuteQuotient
         
-        var totalNumberOfLights = calculateNumberOfLights(totalNumberOfLightsInARow: numberOfLightsInARow.fiveMinuteRow, numberOfIlluminatedLights: numberOfIlluminatedLights,illuminatedLight: .Yellow)
+        var totalNumberOfLights = calculateNumberOfLights(totalNumberOfLightsInARow:numberOfLightsInARow.fiveMinuteRow,
+                                                          numberOfIlluminatedLights: numberOfIlluminatedLights,
+                                                          illuminatedLight: .Yellow)
         
         for index in 1...totalNumberOfLights.count where isThirdLightYellowInFiveMinuteLightRow(index: index, totalLights: totalNumberOfLights) {
             totalNumberOfLights[index-1] = Light.Red
@@ -63,7 +65,9 @@ class Clock: ClockProtocol {
     private func oneMinuteLightRow(_ minutes: DigitalMinutes)-> [Light] {
         let numberOfYellowLights = minutes%lightRemainder.oneMinuteRemainder
         
-        let totalNumberOfLights = calculateNumberOfLights(totalNumberOfLightsInARow: numberOfLightsInARow.oneMinuteRow, numberOfIlluminatedLights: numberOfYellowLights, illuminatedLight: .Yellow)
+        let totalNumberOfLights = calculateNumberOfLights(totalNumberOfLightsInARow:numberOfLightsInARow.oneMinuteRow,
+            numberOfIlluminatedLights: numberOfYellowLights,
+            illuminatedLight: .Yellow)
         
         return totalNumberOfLights
     }
