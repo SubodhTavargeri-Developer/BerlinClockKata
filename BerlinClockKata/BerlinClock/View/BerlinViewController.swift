@@ -47,14 +47,14 @@ class BerlinViewController: UIViewController {
         removeSubViewsInsideStackView(stackViewOneMinute)
     }
     
-    func removeSubViewsInsideStackView(_ stackview: UIStackView) {
+    private func removeSubViewsInsideStackView(_ stackview: UIStackView) {
         stackview.arrangedSubviews.forEach{$0.removeFromSuperview()}
     }
     
     private func addLightViewsIntoStackView(_ stackview: UIStackView,
                                             lights: [Light]) {
         lights.forEach {
-            let view = UIView()
+            let view = BerlinClockView()
             view.backgroundColor = $0.getColor()
             stackview.addArrangedSubview(view)
         }
@@ -132,7 +132,6 @@ extension BerlinViewController: UIPickerViewDelegate, UIPickerViewDataSource {
 }
 
 private extension Light {
-    
     func getColor() -> UIColor {
         
         switch self {
