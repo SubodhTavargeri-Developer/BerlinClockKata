@@ -7,9 +7,7 @@ class BerlinViewController: UIViewController {
     private var userSelectedMinutes = 0
     private var userSelectedSeconds = 0
     
-    private var hourRowPicker = 0
-    private var minuteRowPicker = 0
-    private var secondRowPicker = 0
+    private var timePickerModel: TimePickerModel?
     private var numberOfRows = 0
     
     @IBOutlet weak var stackViewSeconds: UIStackView!
@@ -83,9 +81,7 @@ class BerlinViewController: UIViewController {
 extension BerlinViewController: BerlinClockViewProtocol {
     
     func timePickerValues(timePickerModel: TimePickerModel) {
-        hourRowPicker = timePickerModel.hoursEndValue
-        minuteRowPicker = timePickerModel.minutesEndValue
-        secondRowPicker = timePickerModel.secondsEndValue
+        self.timePickerModel = timePickerModel
     }
     
     func displayViewTitle(title: String) {
@@ -116,11 +112,11 @@ extension BerlinViewController: UIPickerViewDataSource, UIPickerViewDelegate {
                     numberOfRowsInComponent component: Int) -> Int {
         switch component {
         case 0:
-            return hourRowPicker
+            return timePickerModel?.hoursEndValue ?? 0
         case 1:
-            return minuteRowPicker
+            return timePickerModel?.minutesEndValue ?? 0
         case 2:
-            return secondRowPicker
+            return timePickerModel?.secondsEndValue ?? 0
         default:
             return 0
         }
