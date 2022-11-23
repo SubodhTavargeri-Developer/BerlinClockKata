@@ -10,11 +10,11 @@ class BerlinViewController: UIViewController {
     private var timePickerModel: TimePickerModel?
     private var numberOfRows = 0
     
-    @IBOutlet weak var stackViewSeconds: UIStackView!
-    @IBOutlet weak var stackViewFiveHour: UIStackView!
-    @IBOutlet weak var stackViewOneHour: UIStackView!
-    @IBOutlet weak var stackViewFiveMinute: UIStackView!
-    @IBOutlet weak var stackViewOneMinute: UIStackView!
+    @IBOutlet private weak var stackViewSeconds: UIStackView!
+    @IBOutlet private weak var stackViewFiveHour: UIStackView!
+    @IBOutlet private weak var stackViewOneHour: UIStackView!
+    @IBOutlet private weak var stackViewFiveMinute: UIStackView!
+    @IBOutlet private weak var stackViewOneMinute: UIStackView!
     
     @IBOutlet private weak var textFieldTime: UITextField!
     @IBOutlet private weak var toolBarDone: UIToolbar!
