@@ -109,7 +109,7 @@ extension BerlinViewController: BerlinClockViewProtocol {
 extension BerlinViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return numberOfRows
+        return Constant.TotalNumberOfComponents
     }
     
     func pickerView(_ pickerView: UIPickerView,
