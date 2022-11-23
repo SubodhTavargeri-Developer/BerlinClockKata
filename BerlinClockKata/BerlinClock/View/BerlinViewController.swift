@@ -7,8 +7,14 @@ class BerlinViewController: UIViewController {
     private var minutes = 0
     private var seconds = 0
     
-    @IBOutlet private weak var toolBarDone: UIToolbar!
+    @IBOutlet weak var stackViewSeconds: UIStackView!
+    @IBOutlet weak var stackViewFiveHour: UIStackView!
+    @IBOutlet weak var stackViewOneHour: UIStackView!
+    @IBOutlet weak var stackViewFiveMinute: UIStackView!
+    @IBOutlet weak var stackViewOneMinute: UIStackView!
+    
     @IBOutlet private weak var textFieldTime: UITextField!
+    @IBOutlet private weak var toolBarDone: UIToolbar!
     @IBOutlet private weak var pickerTime: UIPickerView!
     
     override func viewDidLoad() {

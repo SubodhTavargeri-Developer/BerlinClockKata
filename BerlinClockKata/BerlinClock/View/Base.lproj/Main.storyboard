@@ -21,17 +21,58 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hO9-p6-TI7">
+                                <rect key="frame" x="32" y="278" width="350" height="350"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="7k4-kk-m96" userLabel="BerlinClockStackView">
+                                        <rect key="frame" x="0.0" y="0.0" width="350" height="350"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="LTj-Rl-24b" userLabel="SecondsStack View">
+                                                <rect key="frame" x="0.0" y="0.0" width="350" height="68.5"/>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="oPL-Wg-vLp" userLabel="FiveHoursStack View">
+                                                <rect key="frame" x="0.0" y="70.5" width="350" height="68.5"/>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="MI2-m7-kia" userLabel="OneHourStack">
+                                                <rect key="frame" x="0.0" y="141" width="350" height="68"/>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="8Tk-eC-mZD" userLabel="FiveminutesStack">
+                                                <rect key="frame" x="0.0" y="211" width="350" height="68.5"/>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="1WV-Io-fN0" userLabel="OneMinuteStack">
+                                                <rect key="frame" x="0.0" y="281.5" width="350" height="68.5"/>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="hO9-p6-TI7" secondAttribute="height" id="Sw6-kW-PZf"/>
+                                    <constraint firstAttribute="height" constant="350" id="bE4-XM-sr4"/>
+                                    <constraint firstAttribute="trailing" secondItem="7k4-kk-m96" secondAttribute="trailing" id="d7e-4x-VA2"/>
+                                    <constraint firstItem="7k4-kk-m96" firstAttribute="leading" secondItem="hO9-p6-TI7" secondAttribute="leading" id="rda-b9-HUq"/>
+                                    <constraint firstItem="7k4-kk-m96" firstAttribute="top" secondItem="hO9-p6-TI7" secondAttribute="top" id="ubN-vk-JSn"/>
+                                    <constraint firstAttribute="bottom" secondItem="7k4-kk-m96" secondAttribute="bottom" id="ytp-lf-5OL"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hmG-NA-pzp" secondAttribute="trailing" constant="8" id="3hs-I5-gX1"/>
                             <constraint firstItem="hmG-NA-pzp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="NTp-Vf-5K4"/>
+                            <constraint firstItem="hO9-p6-TI7" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="RbO-XB-f7O"/>
                             <constraint firstItem="hmG-NA-pzp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="nTF-6N-JRm"/>
+                            <constraint firstItem="hO9-p6-TI7" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="tcD-XP-1Vk"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="pickerTime" destination="7Lx-DQ-go0" id="skt-nl-nkB"/>
+                        <outlet property="stackViewFiveHour" destination="oPL-Wg-vLp" id="Rm5-6C-UEP"/>
+                        <outlet property="stackViewFiveMinute" destination="8Tk-eC-mZD" id="qUf-Yk-msb"/>
+                        <outlet property="stackViewOneHour" destination="MI2-m7-kia" id="UlA-98-vUh"/>
+                        <outlet property="stackViewOneMinute" destination="1WV-Io-fN0" id="zJE-6n-jhy"/>
+                        <outlet property="stackViewSeconds" destination="LTj-Rl-24b" id="rgN-Jh-TLh"/>
                         <outlet property="textFieldTime" destination="hmG-NA-pzp" id="YMd-lb-bmW"/>
                         <outlet property="toolBarDone" destination="2b7-Qy-bWS" id="Ltf-HJ-z6y"/>
                     </connections>
