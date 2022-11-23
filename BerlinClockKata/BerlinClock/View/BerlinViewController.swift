@@ -32,8 +32,19 @@ class BerlinViewController: UIViewController {
         textFieldTime.inputAccessoryView = toolBarDone
     }
     
-     @IBAction private func doneToolBarButtonPressed(_ sender: Any) {
+    @IBAction private func doneToolBarButtonPressed(_ sender: Any) {
         textFieldTime.resignFirstResponder()
+        let digitalTime = DigitalTime(hours: hours, minutes: minutes, seconds: seconds)
+        presenter?.displayBerlinClock(digitalTime: digitalTime)
+    }
+    
+    private func addLightViewsIntoStackView(_ stackview: UIStackView,
+                                            lights: [Light]) {
+        lights.forEach {
+            let view = UIView()
+            view.backgroundColor = $0.getColor()
+            stackview.addArrangedSubview(view)
+        }
     }
 }
 
@@ -44,9 +55,17 @@ extension BerlinViewController: BerlinClockViewProtocol {
     }
     
     func displayBerlinClockView(berlinClock: BerlinClockTime) {
-        
+       // addLightViewsIntoStackView(stackViewSeconds,
+       //                            lights: [berlinClock.secondsLight])
+        addLightViewsIntoStackView(stackViewFiveHour,
+                                   lights: berlinClock.fiveHoursLights)
+        addLightViewsIntoStackView(stackViewOneHour,
+                                   lights: berlinClock.oneHoursLights)
+        addLightViewsIntoStackView(stackViewFiveMinute,
+                                   lights: berlinClock.fiveMinutesLights)
+        addLightViewsIntoStackView(stackViewOneMinute,
+                                   lights: berlinClock.oneMinutesLights)
     }
-    
 }
 
 extension BerlinViewController: UIPickerViewDelegate, UIPickerViewDataSource {
@@ -97,5 +116,20 @@ extension BerlinViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         }
         
         textFieldTime.text = ("\(hours):\(minutes):\(seconds)")
+    }
+}
+
+private extension Light {
+    
+    func getColor() -> UIColor {
+        
+        switch self {
+        case .Off:
+            return .white
+        case .Red:
+            return .red
+        case .Yellow:
+            return .yellow
+        }
     }
 }

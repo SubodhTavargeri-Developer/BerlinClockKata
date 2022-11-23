@@ -24,28 +24,32 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hO9-p6-TI7">
                                 <rect key="frame" x="32" y="278" width="350" height="350"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="7k4-kk-m96" userLabel="BerlinClockStackView">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="7k4-kk-m96" userLabel="BerlinClockStackView">
                                         <rect key="frame" x="0.0" y="0.0" width="350" height="350"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="LTj-Rl-24b" userLabel="SecondsStack View">
-                                                <rect key="frame" x="0.0" y="0.0" width="350" height="68.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="350" height="66"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="oPL-Wg-vLp" userLabel="FiveHoursStack View">
-                                                <rect key="frame" x="0.0" y="70.5" width="350" height="68.5"/>
+                                                <rect key="frame" x="0.0" y="71" width="350" height="66"/>
+                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="MI2-m7-kia" userLabel="OneHourStack">
-                                                <rect key="frame" x="0.0" y="141" width="350" height="68"/>
+                                                <rect key="frame" x="0.0" y="142" width="350" height="66"/>
+                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="8Tk-eC-mZD" userLabel="FiveminutesStack">
-                                                <rect key="frame" x="0.0" y="211" width="350" height="68.5"/>
+                                                <rect key="frame" x="0.0" y="213" width="350" height="66"/>
+                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="1WV-Io-fN0" userLabel="OneMinuteStack">
-                                                <rect key="frame" x="0.0" y="281.5" width="350" height="68.5"/>
+                                                <rect key="frame" x="0.0" y="284" width="350" height="66"/>
+                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </stackView>
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="hO9-p6-TI7" secondAttribute="height" id="Sw6-kW-PZf"/>
                                     <constraint firstAttribute="height" constant="350" id="bE4-XM-sr4"/>
