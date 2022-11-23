@@ -9,9 +9,7 @@ class BerlinClockRouter: RouterProtocol {
     }
     
     func routeToBerlinViewController() {
-        guard let view = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(withIdentifier: "BerlinViewController") as? BerlinViewController else {
-            fatalError("Unable to Instantiate TicTacToeViewController")
-        }
+        let view = BerlinClockFactory.create(router: self)
         navigationController.setViewControllers([view], animated: true)
     }
 }
