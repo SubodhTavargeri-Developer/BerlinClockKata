@@ -6,7 +6,7 @@ class BerlinViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        presenter?.loadPresenter()
     }
     
     func setupPresenter(presenter: BerlinClockPresenter) {
@@ -18,7 +18,7 @@ class BerlinViewController: UIViewController {
 extension BerlinViewController: BerlinClockViewProtocol {
     
     func displayViewTitle(title: String) {
-        
+        self.title = title
     }
     
     func displayBerlinClockView(berlinClock: BerlinClockTime) {

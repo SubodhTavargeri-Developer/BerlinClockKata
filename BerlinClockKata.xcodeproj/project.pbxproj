@@ -163,12 +163,12 @@
 		5B2B0777292B495B00D31E6A /* BerlinClock */ = {
 			isa = PBXGroup;
 			children = (
+				5B4118C9292DDA2200693E5D /* BerlinClockFactory.swift */,
 				5B4118C4292DD6E600693E5D /* Router */,
 				5B2B077F292BA79200D31E6A /* Model */,
 				5B75A591292CA6F30083F822 /* View */,
 				5B75A58E292CA66F0083F822 /* Presenter */,
 				5B2B077A292B4EE000D31E6A /* Constant.swift */,
-				5B4118C9292DDA2200693E5D /* BerlinClockFactory.swift */,
 			);
 			path = BerlinClock;
 			sourceTree = "<group>";
