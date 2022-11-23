@@ -33,9 +33,22 @@ class BerlinViewController: UIViewController {
     }
     
     @IBAction private func doneToolBarButtonPressed(_ sender: Any) {
+        removeLightViewInsideBerlinClockView()
         textFieldTime.resignFirstResponder()
         let digitalTime = DigitalTime(hours: hours, minutes: minutes, seconds: seconds)
         presenter?.displayBerlinClock(digitalTime: digitalTime)
+    }
+    
+    private func removeLightViewInsideBerlinClockView() {
+        removeSubViewsInsideStackView(stackViewSeconds)
+        removeSubViewsInsideStackView(stackViewFiveHour)
+        removeSubViewsInsideStackView(stackViewOneHour)
+        removeSubViewsInsideStackView(stackViewFiveMinute)
+        removeSubViewsInsideStackView(stackViewOneMinute)
+    }
+    
+    func removeSubViewsInsideStackView(_ stackview: UIStackView) {
+        stackview.arrangedSubviews.forEach{$0.removeFromSuperview()}
     }
     
     private func addLightViewsIntoStackView(_ stackview: UIStackView,
@@ -55,8 +68,8 @@ extension BerlinViewController: BerlinClockViewProtocol {
     }
     
     func displayBerlinClockView(berlinClock: BerlinClockTime) {
-       // addLightViewsIntoStackView(stackViewSeconds,
-       //                            lights: [berlinClock.secondsLight])
+        addLightViewsIntoStackView(stackViewSeconds,
+                                   lights: [berlinClock.secondsLight])
         addLightViewsIntoStackView(stackViewFiveHour,
                                    lights: berlinClock.fiveHoursLights)
         addLightViewsIntoStackView(stackViewOneHour,
@@ -114,7 +127,6 @@ extension BerlinViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         default:
             break;
         }
-        
         textFieldTime.text = ("\(hours):\(minutes):\(seconds)")
     }
 }
