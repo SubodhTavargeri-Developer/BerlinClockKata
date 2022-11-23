@@ -1,5 +1,9 @@
 struct TimePickerModel {
-    let hoursEndValue: Int
-    let minutesEndValue: Int
-    let secondsEndValue: Int
+    let hoursEndValue: TimePickerHourUpperLimit
+    let minutesEndValue: TimePickerMinutesUpperLimit
+    let secondsEndValue: TimePickerSecondsUpperLimit
 }
+
+typealias TimePickerHourUpperLimit = Int
+typealias TimePickerMinutesUpperLimit = Int
+typealias TimePickerSecondsUpperLimit = Int
