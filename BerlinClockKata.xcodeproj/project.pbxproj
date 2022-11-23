@@ -14,7 +14,6 @@
 		5B2B074F292B440400D31E6A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B2B074E292B440400D31E6A /* Assets.xcassets */; };
 		5B2B0752292B440400D31E6A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B2B0750292B440400D31E6A /* LaunchScreen.storyboard */; };
 		5B2B0767292B440400D31E6A /* BerlinClockKataUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2B0766292B440400D31E6A /* BerlinClockKataUITests.swift */; };
-		5B2B0769292B440400D31E6A /* BerlinClockKataUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2B0768292B440400D31E6A /* BerlinClockKataUITestsLaunchTests.swift */; };
 		5B2B0776292B469900D31E6A /* ClockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2B0775292B469900D31E6A /* ClockTests.swift */; };
 		5B2B0779292B496C00D31E6A /* Clock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2B0778292B496C00D31E6A /* Clock.swift */; };
 		5B2B077B292B4EE000D31E6A /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2B077A292B4EE000D31E6A /* Constant.swift */; };
@@ -65,7 +64,6 @@
 		5B2B0758292B440400D31E6A /* BerlinClockKataTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BerlinClockKataTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B2B0762292B440400D31E6A /* BerlinClockKataUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BerlinClockKataUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B2B0766292B440400D31E6A /* BerlinClockKataUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BerlinClockKataUITests.swift; sourceTree = "<group>"; };
-		5B2B0768292B440400D31E6A /* BerlinClockKataUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BerlinClockKataUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		5B2B0775292B469900D31E6A /* ClockTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockTests.swift; sourceTree = "<group>"; };
 		5B2B0778292B496C00D31E6A /* Clock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clock.swift; sourceTree = "<group>"; };
 		5B2B077A292B4EE000D31E6A /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
@@ -159,7 +157,6 @@
 			isa = PBXGroup;
 			children = (
 				5B2B0766292B440400D31E6A /* BerlinClockKataUITests.swift */,
-				5B2B0768292B440400D31E6A /* BerlinClockKataUITestsLaunchTests.swift */,
 			);
 			path = BerlinClockKataUITests;
 			sourceTree = "<group>";
@@ -396,7 +393,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B2B0769292B440400D31E6A /* BerlinClockKataUITestsLaunchTests.swift in Sources */,
 				5B2B0767292B440400D31E6A /* BerlinClockKataUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
