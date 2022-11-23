@@ -181,10 +181,10 @@
 			isa = PBXGroup;
 			children = (
 				5B2B0780292BA79E00D31E6A /* DigitalTime.swift */,
-				5B75A58A292CA3AD0083F822 /* ClockProtocol.swift */,
 				5BA6B285292C122E001EE2F2 /* BerlinClockTime.swift */,
-				5B2B0778292B496C00D31E6A /* Clock.swift */,
 				5B4118D2292E2ADE00693E5D /* TimePickerModel.swift */,
+				5B75A58A292CA3AD0083F822 /* ClockProtocol.swift */,
+				5B2B0778292B496C00D31E6A /* Clock.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
