@@ -38,14 +38,18 @@ class BerlinViewController: UIViewController {
     }
     
     @IBAction private func doneToolBarButtonPressed(_ sender: Any) {
+        setTextFieldValue()
         textFieldTime.resignFirstResponder()
+        removeLightViewInsideBerlinClockView()
         displayBerlinClockTime()
     }
     
     private func displayBerlinClockTime() {
-        removeLightViewInsideBerlinClockView()
         let digitalTime = DigitalTime(hours: hours, minutes: minutes, seconds: seconds)
         presenter?.displayBerlinClock(digitalTime: digitalTime)
+    }
+    private func setTextFieldValue() {
+        textFieldTime.text = ("\(hours):\(minutes):\(seconds)")
     }
     
     private func removeLightViewInsideBerlinClockView() {
@@ -150,7 +154,7 @@ extension BerlinViewController: UIPickerViewDataSource, UIPickerViewDelegate {
         default:
             break;
         }
-        textFieldTime.text = ("\(hours):\(minutes):\(seconds)")
+        setTextFieldValue()
     }
 }
 
