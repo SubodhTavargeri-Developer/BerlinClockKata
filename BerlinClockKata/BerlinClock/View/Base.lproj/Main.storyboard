@@ -16,8 +16,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Digital Time:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G9e-ch-EvT" userLabel="DigitalTime">
+                                <rect key="frame" x="8" y="52" width="94.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="hh:mm:ss" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hmG-NA-pzp">
-                                <rect key="frame" x="8" y="52" width="398" height="34"/>
+                                <rect key="frame" x="110.5" y="45.5" width="295.5" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -64,9 +70,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hmG-NA-pzp" secondAttribute="trailing" constant="8" id="3hs-I5-gX1"/>
-                            <constraint firstItem="hmG-NA-pzp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="NTp-Vf-5K4"/>
+                            <constraint firstItem="hmG-NA-pzp" firstAttribute="centerY" secondItem="G9e-ch-EvT" secondAttribute="centerY" id="68e-D8-gOt"/>
                             <constraint firstItem="hO9-p6-TI7" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="RbO-XB-f7O"/>
-                            <constraint firstItem="hmG-NA-pzp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="nTF-6N-JRm"/>
+                            <constraint firstItem="G9e-ch-EvT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="Rcx-Do-FIX"/>
+                            <constraint firstItem="G9e-ch-EvT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="jv7-ch-5W7"/>
+                            <constraint firstItem="hmG-NA-pzp" firstAttribute="leading" secondItem="G9e-ch-EvT" secondAttribute="trailing" constant="8" id="pjB-XY-gmp"/>
                             <constraint firstItem="hO9-p6-TI7" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="tcD-XP-1Vk"/>
                         </constraints>
                     </view>
