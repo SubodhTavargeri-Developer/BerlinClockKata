@@ -20,6 +20,8 @@ class BerlinViewController: UIViewController {
     @IBOutlet private weak var toolBarDone: UIToolbar!
     @IBOutlet private weak var pickerTime: UIPickerView!
     
+    private typealias accessibilityIdentifier = String
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.loadPresenter()
@@ -43,7 +45,9 @@ class BerlinViewController: UIViewController {
     }
     
     private func digitalToBerLinClock() {
-        let digitalTime = DigitalTime(hours: userSelectedHours, minutes: userSelectedMinutes, seconds: userSelectedSeconds)
+        let digitalTime = DigitalTime(hours: userSelectedHours,
+                                      minutes: userSelectedMinutes,
+                                      seconds: userSelectedSeconds)
         presenter?.handleTimeButtonAction(digitalTime: digitalTime)
     }
     private func setTextFieldValue() {
@@ -67,13 +71,16 @@ class BerlinViewController: UIViewController {
         for index in 0..<lights.count {
             let light = lights[index]
             let view = BerlinClockLight()
-            view.accessibilityIdentifier = viewAccessibilityIdentifier(viewIdentifier: stackview.accessibilityIdentifier ?? "", index: index)
+            view.accessibilityIdentifier = viewAccessibilityIdentifier(viewIdentifier:
+                                                                        stackview.accessibilityIdentifier ?? "",
+                                                                       index: index)
             view.backgroundColor = light.getColor()
             stackview.addArrangedSubview(view)
         }
     }
     
-    private func viewAccessibilityIdentifier(viewIdentifier: String, index: Int) -> String {
+    private func viewAccessibilityIdentifier(viewIdentifier: accessibilityIdentifier,
+                                             index: Int) -> accessibilityIdentifier {
         "\(viewIdentifier)\(index)"
     }
 }
@@ -161,7 +168,6 @@ extension BerlinViewController: UIPickerViewDataSource, UIPickerViewDelegate {
 
 private extension Light {
     func getColor() -> UIColor {
-        
         switch self {
         case .Off:
             return .white
