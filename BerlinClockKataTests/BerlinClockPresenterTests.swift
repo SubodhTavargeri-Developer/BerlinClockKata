@@ -34,7 +34,7 @@ class BerlinClockPresenterTests: XCTestCase {
     func test_ViewTimePickerValuesAreSet_WhenPresenterLoads() {
         presenter.loadPresenter()
         
-        let expected = TimePickerModel(hoursEndValue: 23, minutesEndValue: 59, secondsEndValue: 59)
+        let expected = TimePickerModel(hoursEndValue: 24, minutesEndValue: 60, secondsEndValue: 60)
         XCTAssertEqual(view.timePicker, expected)
     }
 }

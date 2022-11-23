@@ -6,6 +6,9 @@ class BerlinViewController: UIViewController {
     private var hours = 0
     private var minutes = 0
     private var seconds = 0
+    private var hourRowPicker = 0
+    private var minuteRowPicker = 0
+    private var secondRowPicker = 0
     
     @IBOutlet weak var stackViewSeconds: UIStackView!
     @IBOutlet weak var stackViewFiveHour: UIStackView!
@@ -33,8 +36,12 @@ class BerlinViewController: UIViewController {
     }
     
     @IBAction private func doneToolBarButtonPressed(_ sender: Any) {
-        removeLightViewInsideBerlinClockView()
         textFieldTime.resignFirstResponder()
+        displayBerlinClockTime()
+    }
+    
+    private func displayBerlinClockTime() {
+        removeLightViewInsideBerlinClockView()
         let digitalTime = DigitalTime(hours: hours, minutes: minutes, seconds: seconds)
         presenter?.displayBerlinClock(digitalTime: digitalTime)
     }
@@ -64,7 +71,9 @@ class BerlinViewController: UIViewController {
 extension BerlinViewController: BerlinClockViewProtocol {
     
     func timePickerValues(timePickerModel: TimePickerModel) {
-        
+        hourRowPicker = timePickerModel.hoursEndValue
+        minuteRowPicker = timePickerModel.minutesEndValue
+        secondRowPicker = timePickerModel.secondsEndValue
     }
     
     func displayViewTitle(title: String) {
@@ -91,23 +100,28 @@ extension BerlinViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         return 3
     }
     
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    func pickerView(_ pickerView: UIPickerView,
+                    numberOfRowsInComponent component: Int) -> Int {
         switch component {
         case 0:
-            return 24
-        case 1,2:
-            return 60
-            
+            return hourRowPicker
+        case 1:
+            return minuteRowPicker
+        case 2:
+            return secondRowPicker
         default:
             return 0
         }
     }
     
-    func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
+    func pickerView(_ pickerView: UIPickerView,
+                    widthForComponent component: Int) -> CGFloat {
         return pickerView.frame.size.width/3
     }
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    func pickerView(_ pickerView: UIPickerView,
+                    titleForRow row: Int,
+                    forComponent component: Int) -> String? {
         switch component {
         case 0:
             return "\(row) Hour"
@@ -120,7 +134,9 @@ extension BerlinViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         }
     }
     
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    func pickerView(_ pickerView: UIPickerView,
+                    didSelectRow row: Int,
+                    inComponent component: Int) {
         switch component {
         case 0:
             hours = row
