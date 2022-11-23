@@ -66,11 +66,17 @@ class BerlinViewController: UIViewController {
     
     private func addLightViewsIntoStackView(_ stackview: UIStackView,
                                             lights: [Light]) {
-        lights.forEach {
+        for index in 0..<lights.count {
+            let light = lights[index]
             let view = BerlinClockView()
-            view.backgroundColor = $0.getColor()
+            view.accessibilityIdentifier = viewAccessibilityIdentifier(viewIdentifier: stackview.accessibilityIdentifier ?? "", index: index)
+            view.backgroundColor = light.getColor()
             stackview.addArrangedSubview(view)
         }
+    }
+    
+    private func viewAccessibilityIdentifier(viewIdentifier: String, index: Int) -> String {
+        "\(viewIdentifier)\(index)"
     }
 }
 
