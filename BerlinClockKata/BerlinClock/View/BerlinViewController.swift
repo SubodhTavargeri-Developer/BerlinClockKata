@@ -3,9 +3,9 @@ import UIKit
 class BerlinViewController: UIViewController {
     
     private var presenter: BerlinClockPresenter?
-    private var hours = 0
-    private var minutes = 0
-    private var seconds = 0
+    private var userSelectedHours = 0
+    private var userSelectedMinutes = 0
+    private var userSelectedSeconds = 0
     
     private var hourRowPicker = 0
     private var minuteRowPicker = 0
@@ -45,11 +45,11 @@ class BerlinViewController: UIViewController {
     }
     
     private func displayBerlinClockTime() {
-        let digitalTime = DigitalTime(hours: hours, minutes: minutes, seconds: seconds)
+        let digitalTime = DigitalTime(hours: userSelectedHours, minutes: userSelectedMinutes, seconds: userSelectedSeconds)
         presenter?.handleConvertTimeButtonAction(digitalTime: digitalTime)
     }
     private func setTextFieldValue() {
-        textFieldTime.text = ("\(hours):\(minutes):\(seconds)")
+        textFieldTime.text = ("\(userSelectedHours):\(userSelectedMinutes):\(userSelectedSeconds)")
     }
     
     private func removeLightViewInsideBerlinClockView() {
@@ -151,11 +151,11 @@ extension BerlinViewController: UIPickerViewDataSource, UIPickerViewDelegate {
                     inComponent component: Int) {
         switch component {
         case 0:
-            hours = row
+            userSelectedHours = row
         case 1:
-            minutes = row
+            userSelectedMinutes = row
         case 2:
-            seconds = row
+            userSelectedSeconds = row
         default:
             break;
         }
