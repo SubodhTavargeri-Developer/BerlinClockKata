@@ -75,7 +75,8 @@ class Clock: ClockProtocol {
     
     private func isThirdLightYellowInFiveMinuteLightRow(index: Int,
                                                         totalLights: [Light])-> Bool {
-        return index%lightRemainder.thirdLightInFiveMinuteRemainder == 0 && totalLights[index-1] == .Yellow
+        return index%lightRemainder.thirdLightInFiveMinuteRemainder == 0
+        && totalLights[index-1] == .Yellow
     }
     
     private func calculateNumberOfLights(totalNumberOfLightsInARow: Int,
