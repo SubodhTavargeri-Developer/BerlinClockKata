@@ -11,6 +11,7 @@ class BerlinClockPresenter: BerlinClockPresenterProtocol {
     
     func loadPresenter() {
         displayViewTitle()
+        timePickerValues()
     }
     
     func displayBerlinClock(digitalTime: DigitalTime) {
@@ -20,6 +21,11 @@ class BerlinClockPresenter: BerlinClockPresenterProtocol {
     
     private func displayViewTitle() {
         view?.displayViewTitle(title: Constant.Title.screenTitle)
+    }
+    
+    private func timePickerValues() {
+        let timePickerModel = TimePickerModel(hoursEndValue: 23, minutesEndValue: 59, secondsEndValue: 59)
+        view?.timePickerValues(timePickerModel: timePickerModel)
     }
     
 }

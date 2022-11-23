@@ -63,6 +63,10 @@ class BerlinViewController: UIViewController {
 
 extension BerlinViewController: BerlinClockViewProtocol {
     
+    func timePickerValues(timePickerModel: TimePickerModel) {
+        
+    }
+    
     func displayViewTitle(title: String) {
         self.title = title
     }

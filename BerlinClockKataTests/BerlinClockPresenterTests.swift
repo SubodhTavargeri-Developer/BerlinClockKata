@@ -30,6 +30,13 @@ class BerlinClockPresenterTests: XCTestCase {
         
         XCTAssertEqual(view.clock, berlinClockTime)
     }
+    
+    func test_ViewTimePickerValuesAreSet_WhenPresenterLoads() {
+        presenter.loadPresenter()
+        
+        let expected = TimePickerModel(hoursEndValue: 23, minutesEndValue: 59, secondsEndValue: 59)
+        XCTAssertEqual(view.timePicker, expected)
+    }
 }
 extension BerlinClockTime: Equatable {
     public static func == (lhs: BerlinClockTime, rhs: BerlinClockTime) -> Bool {
@@ -38,5 +45,13 @@ extension BerlinClockTime: Equatable {
         && lhs.oneHoursLights == rhs.oneHoursLights
         && lhs.fiveMinutesLights == rhs.fiveMinutesLights
         && lhs.oneMinutesLights == rhs.oneMinutesLights
+    }
+}
+
+extension TimePickerModel: Equatable {
+    public static func == (lhs: TimePickerModel, rhs: TimePickerModel)-> Bool {
+        return lhs.hoursEndValue == rhs.hoursEndValue
+        && lhs.minutesEndValue == rhs.minutesEndValue
+        && lhs.secondsEndValue == rhs.secondsEndValue
     }
 }
