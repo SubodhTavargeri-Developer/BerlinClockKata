@@ -24,7 +24,8 @@ class BerlinClockPresenter: BerlinClockPresenterProtocol {
     }
     
     private func timePickerValues() {
-        let timePickerModel = TimePickerModel(hoursEndValue: Constant.TimePicker.hours,
+        let timePickerModel = TimePickerModel(numberofRows:Constant.TimePicker.numberOfRows,
+                                              hoursEndValue: Constant.TimePicker.hours,
                                               minutesEndValue: Constant.TimePicker.minutes,
                                               secondsEndValue: Constant.TimePicker.seconds)
         view?.timePickerValues(timePickerModel: timePickerModel)
