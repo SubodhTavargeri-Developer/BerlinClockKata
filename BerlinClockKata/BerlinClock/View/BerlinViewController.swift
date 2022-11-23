@@ -26,6 +26,9 @@ class BerlinViewController: UIViewController {
         textFieldTime.inputAccessoryView = toolBarDone
     }
     
+     @IBAction private func doneToolBarButtonPressed(_ sender: Any) {
+        textFieldTime.resignFirstResponder()
+    }
 }
 
 extension BerlinViewController: BerlinClockViewProtocol {
@@ -45,6 +48,7 @@ extension BerlinViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 3
     }
+    
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         switch component {
         case 0:
