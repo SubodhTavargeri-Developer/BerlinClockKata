@@ -39,10 +39,10 @@ class BerlinViewController: UIViewController {
         setTextFieldValue()
         textFieldTime.resignFirstResponder()
         removeLightViewInsideBerlinClockView()
-        displayBerlinClockTime()
+        digitalToBerLinClock()
     }
     
-    private func displayBerlinClockTime() {
+    private func digitalToBerLinClock() {
         let digitalTime = DigitalTime(hours: userSelectedHours, minutes: userSelectedMinutes, seconds: userSelectedSeconds)
         presenter?.handleConvertTimeButtonAction(digitalTime: digitalTime)
     }
