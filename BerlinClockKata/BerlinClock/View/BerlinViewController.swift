@@ -68,7 +68,7 @@ class BerlinViewController: UIViewController {
                                             lights: [Light]) {
         for index in 0..<lights.count {
             let light = lights[index]
-            let view = BerlinClockView()
+            let view = BerlinClockLight()
             view.accessibilityIdentifier = viewAccessibilityIdentifier(viewIdentifier: stackview.accessibilityIdentifier ?? "", index: index)
             view.backgroundColor = light.getColor()
             stackview.addArrangedSubview(view)
