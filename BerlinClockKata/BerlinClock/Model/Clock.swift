@@ -38,7 +38,7 @@ class Clock: ClockProtocol {
     private func fiveHourLightRow(_ hours: DigitalHours)-> [Light] {
         let numberOfRedLights = hours/lightQuotient.fiveHourQuotient
         
-        let totalNumberOfLights = calculateNumberOfLights(totalNumberOfLightsInARow: numberOfLightsInARow.fiveHourRow, numberOfIlluminatedLights: numberOfRedLights, illuminatedLight: .Red)
+        let totalNumberOfLights = totalLightsForARowContainingIlluminatedLights(totalNumberOfLightsInARow: numberOfLightsInARow.fiveHourRow, numberOfIlluminatedLights: numberOfRedLights, illuminatedLight: .Red)
         
         return totalNumberOfLights
     }
@@ -46,7 +46,7 @@ class Clock: ClockProtocol {
     private func oneHourLightRow(_ hours: DigitalHours)-> [Light] {
         let numberOfRedLights = hours%lightRemainder.oneHourRemainder
         
-        let totalNumberOfLights = calculateNumberOfLights(totalNumberOfLightsInARow: numberOfLightsInARow.oneHourRow,
+        let totalNumberOfLights = totalLightsForARowContainingIlluminatedLights(totalNumberOfLightsInARow: numberOfLightsInARow.oneHourRow,
                                                           numberOfIlluminatedLights: numberOfRedLights, illuminatedLight: .Red)
         
         return totalNumberOfLights
@@ -55,7 +55,7 @@ class Clock: ClockProtocol {
     private func fiveMinuteLightRow(_ minutes: DigitalMinutes)-> [Light] {
         let numberOfIlluminatedLights = minutes/lightQuotient.fiveMinuteQuotient
         
-        var totalNumberOfLights = calculateNumberOfLights(totalNumberOfLightsInARow:numberOfLightsInARow.fiveMinuteRow,
+        var totalNumberOfLights = totalLightsForARowContainingIlluminatedLights(totalNumberOfLightsInARow:numberOfLightsInARow.fiveMinuteRow,
                                                           numberOfIlluminatedLights: numberOfIlluminatedLights,
                                                           illuminatedLight: .Yellow)
         
@@ -70,7 +70,7 @@ class Clock: ClockProtocol {
     private func oneMinuteLightRow(_ minutes: DigitalMinutes)-> [Light] {
         let numberOfYellowLights = minutes%lightRemainder.oneMinuteRemainder
         
-        let totalNumberOfLights = calculateNumberOfLights(totalNumberOfLightsInARow:numberOfLightsInARow.oneMinuteRow,
+        let totalNumberOfLights = totalLightsForARowContainingIlluminatedLights(totalNumberOfLightsInARow:numberOfLightsInARow.oneMinuteRow,
                                                           numberOfIlluminatedLights: numberOfYellowLights,
                                                           illuminatedLight: .Yellow)
         
@@ -83,7 +83,7 @@ class Clock: ClockProtocol {
         && totalLights[index-1] == .Yellow
     }
     
-    private func calculateNumberOfLights(totalNumberOfLightsInARow: numberOfLights,
+    private func totalLightsForARowContainingIlluminatedLights(totalNumberOfLightsInARow: numberOfLights,
                                          numberOfIlluminatedLights: numberOfIlluminateLights,
                                          illuminatedLight: Light)-> [Light] {
         
