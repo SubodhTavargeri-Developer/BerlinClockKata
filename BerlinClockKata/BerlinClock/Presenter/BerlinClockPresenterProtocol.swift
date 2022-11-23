@@ -1,5 +1,5 @@
 protocol BerlinClockPresenterProtocol {
     func loadPresenter()
-    func handleConvertTimeButtonAction(digitalTime: DigitalTime)
+    func handleTimeButtonAction(digitalTime: DigitalTime)
 }
 

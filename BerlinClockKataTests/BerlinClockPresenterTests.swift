@@ -26,7 +26,7 @@ class BerlinClockPresenterTests: XCTestCase {
         clock.mockBerlinClockTime(berlinClockTime: berlinClockTime)
         let digitalClock = DigitalTime(hours: 2, minutes: 2, seconds: 2)
         
-        presenter.handleConvertTimeButtonAction(digitalTime: digitalClock)
+        presenter.handleTimeButtonAction(digitalTime: digitalClock)
         
         XCTAssertEqual(view.clock, berlinClockTime)
     }

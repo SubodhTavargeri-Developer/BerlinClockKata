@@ -14,7 +14,7 @@ class BerlinClockPresenter: BerlinClockPresenterProtocol {
         timePickerValues()
     }
     
-    func handleConvertTimeButtonAction(digitalTime: DigitalTime) {
+    func handleTimeButtonAction(digitalTime: DigitalTime) {
         let berlinClock = clock.computeBerlinClockTime(for: digitalTime)
         view?.displayBerlinClockView(berlinClock: berlinClock)
     }

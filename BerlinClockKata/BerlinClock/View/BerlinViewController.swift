@@ -44,7 +44,7 @@ class BerlinViewController: UIViewController {
     
     private func digitalToBerLinClock() {
         let digitalTime = DigitalTime(hours: userSelectedHours, minutes: userSelectedMinutes, seconds: userSelectedSeconds)
-        presenter?.handleConvertTimeButtonAction(digitalTime: digitalTime)
+        presenter?.handleTimeButtonAction(digitalTime: digitalTime)
     }
     private func setTextFieldValue() {
         textFieldTime.text = ("\(userSelectedHours):\(userSelectedMinutes):\(userSelectedSeconds)")
