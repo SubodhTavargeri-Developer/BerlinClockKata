@@ -3,6 +3,9 @@ import UIKit
 class BerlinViewController: UIViewController {
     
     private var presenter: BerlinClockPresenter?
+    private var hours = 0
+    private var minutes = 0
+    private var seconds = 0
     
     @IBOutlet private weak var toolBarDone: UIToolbar!
     @IBOutlet private weak var textFieldTime: UITextField!
@@ -69,5 +72,20 @@ extension BerlinViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         default:
             return ""
         }
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        switch component {
+        case 0:
+            hours = row
+        case 1:
+            minutes = row
+        case 2:
+            seconds = row
+        default:
+            break;
+        }
+        
+        textFieldTime.text = ("\(hours):\(minutes):\(seconds)")
     }
 }
