@@ -1,5 +1,8 @@
 class Clock: ClockProtocol {
     
+    private typealias numberOfLights = Int
+    private typealias numberOfIlluminateLights = Int
+    
     private struct numberOfLightsInARow {
         static let fiveHourRow = 4
         static let oneHourRow = 4
@@ -56,7 +59,8 @@ class Clock: ClockProtocol {
                                                           numberOfIlluminatedLights: numberOfIlluminatedLights,
                                                           illuminatedLight: .Yellow)
         
-        for index in 1...totalNumberOfLights.count where isThirdLightYellowInFiveMinuteLightRow(index: index, totalLights: totalNumberOfLights) {
+        for index in 1...totalNumberOfLights.count where
+        isThirdLightYellowInFiveMinuteLightRow(index: index, totalLights: totalNumberOfLights) {
             totalNumberOfLights[index-1] = Light.Red
         }
         
@@ -79,8 +83,8 @@ class Clock: ClockProtocol {
         && totalLights[index-1] == .Yellow
     }
     
-    private func calculateNumberOfLights(totalNumberOfLightsInARow: Int,
-                                         numberOfIlluminatedLights: Int,
+    private func calculateNumberOfLights(totalNumberOfLightsInARow: numberOfLights,
+                                         numberOfIlluminatedLights: numberOfIlluminateLights,
                                          illuminatedLight: Light)-> [Light] {
         
         var totalNumberOfLights = [Light]()
