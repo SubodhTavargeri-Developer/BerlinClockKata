@@ -13,7 +13,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window?.rootViewController = navigationController
         
         let router = BerlinClockRouter.init(navigationController: navigationController)
-        
         router.routeToBerlinViewController()
         window?.makeKeyAndVisible()
     }
