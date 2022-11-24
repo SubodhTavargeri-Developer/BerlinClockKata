@@ -9,7 +9,7 @@ The next two rows represent hours. The upper row represents 5 hour blocks and is
 The final two rows represent the minutes. The upper row represents 5 minute blocks, and is made up of 11 lamps- every third lamp is red, the rest are yellow. The bottom row represents 1 minute blocks, and is made up of 4 yellow lamps.
 
 
-## Things that the program will not do
+## Things you should know before using application
 - Time should be selected from picker(dropdown).
 - If Time entered manually (in simulator) then current value present in picker will be taken as input for Belgium Clock.
 
