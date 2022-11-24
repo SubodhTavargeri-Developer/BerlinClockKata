@@ -2,7 +2,7 @@ import UIKit
 
 class BerlinViewController: UIViewController {
     
-    private var presenter: BerlinClockPresenter?
+    private var presenter: BerlinClockPresenterProtocol?
     private var userSelectedHours = 0
     private var userSelectedMinutes = 0
     private var userSelectedSeconds = 0
@@ -26,7 +26,7 @@ class BerlinViewController: UIViewController {
         setupView()
     }
     
-    func setupPresenter(presenter: BerlinClockPresenter) {
+    func setupPresenter(presenter: BerlinClockPresenterProtocol) {
         self.presenter = presenter
     }
     
