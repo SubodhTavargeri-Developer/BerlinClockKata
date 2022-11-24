@@ -86,7 +86,7 @@ class BerlinViewController: UIViewController {
 
 extension BerlinViewController: BerlinClockViewProtocol {
     
-    func timePickerValues(timePickerModel: TimePickerModel) {
+    func updateTimePickerValues(timePickerModel: TimePickerModel) {
         self.timePickerModel = timePickerModel
     }
     

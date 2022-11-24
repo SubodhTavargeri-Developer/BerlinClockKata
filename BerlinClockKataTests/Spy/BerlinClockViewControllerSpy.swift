@@ -13,7 +13,7 @@ class BerlinClockViewControllerSpy: BerlinClockViewProtocol {
         clock = berlinClock
     }
     
-    func timePickerValues(timePickerModel: TimePickerModel) {
+    func updateTimePickerValues(timePickerModel: TimePickerModel) {
         timePicker = timePickerModel
     }
 }
