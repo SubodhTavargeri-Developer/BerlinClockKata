@@ -2,13 +2,11 @@ import XCTest
 @testable import BerlinClockKata
 
 class BerlinClockPresenterTests: XCTestCase {
-    private var view: BerlinClockViewControllerSpy!
-    private var clock: ClockMock!
+    private let view = BerlinClockViewControllerSpy()
+    private let clock = ClockMock()
     private var presenter: BerlinClockPresenter!
-    
+
     override func setUp() {
-        view = BerlinClockViewControllerSpy()
-        clock = ClockMock()
         presenter = BerlinClockPresenter(view: view,
                                          clock: clock)
     }
@@ -19,7 +17,7 @@ class BerlinClockPresenterTests: XCTestCase {
         XCTAssertEqual(view.title, Constant.Title.screenTitle)
     }
     
-    func test_ComputedFiveHourLightBerlinClockTimeIsEqualToMock_WhenPresenterSendsDigitalTimeToClock() {
+    func test_DisplayedBerlinClockIsEqualToMock_OnHandleTimeButtonAction() {
         let berlinClockTime = BerlinClockTimeBuilder()
             .withFiveHourLights([.Red, .Red, .Off, .Off])
             .build()
@@ -31,7 +29,7 @@ class BerlinClockPresenterTests: XCTestCase {
         XCTAssertEqual(view.clock, berlinClockTime)
     }
     
-    func test_ViewTimePickerValuesAreSet_WhenPresenterLoads() {
+    func test_ViewTimePickerValuesAreUpdated_WhenPresenterLoads() {
         presenter.loadPresenter()
         
         let expected = TimePickerModel(hoursEndValue: Constant.TimePicker.hours,
