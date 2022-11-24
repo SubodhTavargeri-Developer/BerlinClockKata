@@ -3,8 +3,9 @@
 class ClockMock: ClockProtocol {
     
     private var berlinClockTime: BerlinClockTime = BerlinClockTimeBuilder().build()
-    
+    private (set) var receivedInput: DigitalTime?
     func computeBerlinClockTime(for digitalTime: DigitalTime) -> BerlinClockTime {
+        receivedInput = digitalTime
         return berlinClockTime
     }
     

@@ -28,6 +28,7 @@ class BerlinClockPresenterTests: XCTestCase {
         presenter.handleTimeButtonAction(digitalTime: digitalClock)
         
         XCTAssertEqual(view.clock, berlinClockTime)
+        XCTAssertEqual(clock.receivedInput, digitalClock)
     }
     
     func test_ViewTimePickerValuesAreUpdated_WhenPresenterLoads() {
@@ -54,5 +55,13 @@ extension TimePickerModel: Equatable {
         return lhs.hoursEndValue == rhs.hoursEndValue
         && lhs.minutesEndValue == rhs.minutesEndValue
         && lhs.secondsEndValue == rhs.secondsEndValue
+    }
+}
+
+extension DigitalTime: Equatable {
+    public static func == (lhs: DigitalTime, rhs: DigitalTime)-> Bool {
+        return lhs.hours == lhs.hours
+        && lhs.minutes == rhs.minutes
+        && lhs.seconds == rhs.seconds
     }
 }
