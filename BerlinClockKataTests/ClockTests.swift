@@ -23,7 +23,7 @@ class ClockTests: XCTestCase {
         XCTAssertEqual(originalValue, expected)
     }
     
-    func test_OneRedLightsAreIluminatedOfFiveHourRow_WhenHoursValueIsFive() {
+    func test_OneRedLightIsIluminatedOfFiveHourRow_WhenHoursValueIsFive() {
         let Time = DigitalTime(hours: 5, minutes: 0, seconds: 0)
         
         let originalValue = clock.computeBerlinClockTime(for: Time).fiveHoursLights
@@ -83,6 +83,15 @@ class ClockTests: XCTestCase {
         let originalValue = clock.computeBerlinClockTime(for: Time).oneHoursLights
         
         let expected = [Light.Red,Light.Red,Light.Red,Light.Red]
+        XCTAssertEqual(originalValue, expected)
+    }
+    
+    func test_ZeroRedLightsAreIlluminatedOfOneHourRow_WhenHoursValueIsZero() {
+        let Time = DigitalTime(hours: 0, minutes: 0, seconds: 0)
+        
+        let originalValue = clock.computeBerlinClockTime(for: Time).oneHoursLights
+        
+        let expected = [Light.Off,Light.Off,Light.Off,Light.Off]
         XCTAssertEqual(originalValue, expected)
     }
     
