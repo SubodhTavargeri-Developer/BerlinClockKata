@@ -99,5 +99,4 @@ class Clock: ClockProtocol {
         
         return totalNumberOfLights
     }
-    
 }

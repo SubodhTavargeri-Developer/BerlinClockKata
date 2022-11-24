@@ -237,5 +237,4 @@ class ClockTests: XCTestCase {
             .withOneMinuteLights([.Yellow, .Yellow, .Off, .Off]).build()
         XCTAssertEqual(originalValue, expected)
     }
-    
 }

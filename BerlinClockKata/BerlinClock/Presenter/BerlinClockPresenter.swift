@@ -29,5 +29,4 @@ class BerlinClockPresenter: BerlinClockPresenterProtocol {
                                               secondsEndValue: Constant.TimePicker.seconds)
         view?.setTimePickerValues(timePickerModel: timePickerModel)
     }
-    
 }

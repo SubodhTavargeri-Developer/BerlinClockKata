@@ -16,6 +16,5 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         router.routeToBerlinViewController()
         window?.makeKeyAndVisible()
     }
-    
 }
 

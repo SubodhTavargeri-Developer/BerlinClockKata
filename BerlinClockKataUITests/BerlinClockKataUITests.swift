@@ -34,5 +34,4 @@ class BerlinClockKataUITests: XCTestCase {
         let hourValue = app.otherElements["fiveHourLight0"]
         XCTAssert(hourValue.exists)
     }
-    
 }
