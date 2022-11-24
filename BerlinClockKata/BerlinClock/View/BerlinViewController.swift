@@ -48,6 +48,7 @@ class BerlinViewController: UIViewController {
                                       seconds: userSelectedSeconds)
         presenter?.handleTimeButtonAction(digitalTime: digitalTime)
     }
+    
     private func setTextFieldValue() {
         textFieldTime.text = ("\(userSelectedHours):\(userSelectedMinutes):\(userSelectedSeconds)")
     }
@@ -69,8 +70,7 @@ class BerlinViewController: UIViewController {
         for index in 0..<lights.count {
             let light = lights[index]
             let view = BerlinClockLight()
-            view.accessibilityIdentifier = viewAccessibilityIdentifier(viewIdentifier:
-                                                                        stackview.accessibilityIdentifier ?? "",
+            view.accessibilityIdentifier = viewAccessibilityIdentifier(viewIdentifier: stackview.accessibilityIdentifier ?? "",
                                                                        index: index)
             view.backgroundColor = light.getColor()
             stackview.addArrangedSubview(view)
@@ -78,7 +78,7 @@ class BerlinViewController: UIViewController {
     }
     
     private func viewAccessibilityIdentifier(viewIdentifier: AccessibilityIdentifier,
-                                             index: Int) -> AccessibilityIdentifier {
+                                             index: Int)-> AccessibilityIdentifier {
         "\(viewIdentifier)\(index)"
     }
 }
