@@ -8,8 +8,7 @@ class BerlinViewController: UIViewController {
     private var userSelectedSeconds = 0
     
     private var timePickerModel: TimePickerModel?
-    private var numberOfRows = 0
-    
+ 
     @IBOutlet private weak var stackViewSeconds: UIStackView!
     @IBOutlet private weak var stackViewFiveHour: UIStackView!
     @IBOutlet private weak var stackViewOneHour: UIStackView!
