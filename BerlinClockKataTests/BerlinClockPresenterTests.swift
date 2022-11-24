@@ -14,7 +14,8 @@ class BerlinClockPresenterTests: XCTestCase {
     func test_ViewTitleIsDisplayed_WhenPresenterLoads() {
         presenter.loadPresenter()
         
-        XCTAssertEqual(view.title, Constant.Title.screenTitle)
+        let expectedTitle = "Berlin Clock"
+        XCTAssertEqual(view.title, expectedTitle)
     }
     
     func test_DisplayedBerlinClockIsEqualToMock_OnHandleTimeButtonAction() {
@@ -32,9 +33,9 @@ class BerlinClockPresenterTests: XCTestCase {
     func test_ViewTimePickerValuesAreUpdated_WhenPresenterLoads() {
         presenter.loadPresenter()
         
-        let expected = TimePickerModel(hoursEndValue: Constant.TimePicker.hours,
-                                       minutesEndValue: Constant.TimePicker.minutes,
-                                       secondsEndValue: Constant.TimePicker.seconds)
+        let expected = TimePickerModel(hoursEndValue: 24,
+                                       minutesEndValue: 60,
+                                       secondsEndValue: 60)
         XCTAssertEqual(view.timePicker, expected)
     }
 }
