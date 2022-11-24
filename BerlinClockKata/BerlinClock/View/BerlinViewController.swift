@@ -19,7 +19,7 @@ class BerlinViewController: UIViewController {
     @IBOutlet private weak var toolBarDone: UIToolbar!
     @IBOutlet private weak var pickerTime: UIPickerView!
     
-    private typealias accessibilityIdentifier = String
+    private typealias AccessibilityIdentifier = String
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,8 +78,8 @@ class BerlinViewController: UIViewController {
         }
     }
     
-    private func viewAccessibilityIdentifier(viewIdentifier: accessibilityIdentifier,
-                                             index: Int) -> accessibilityIdentifier {
+    private func viewAccessibilityIdentifier(viewIdentifier: AccessibilityIdentifier,
+                                             index: Int) -> AccessibilityIdentifier {
         "\(viewIdentifier)\(index)"
     }
 }
