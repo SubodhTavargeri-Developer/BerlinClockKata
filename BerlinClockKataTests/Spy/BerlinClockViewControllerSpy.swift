@@ -1,9 +1,9 @@
 @testable import BerlinClockKata
 
 class BerlinClockViewControllerSpy: BerlinClockViewProtocol {
-    var title: String?
-    var clock: BerlinClockTime?
-    var timePicker: TimePickerModel?
+    private (set) var title: String?
+    private (set) var clock: BerlinClockTime?
+    private (set) var timePicker: TimePickerModel?
     
     func displayViewTitle(title: ViewTitle) {
         self.title = title
