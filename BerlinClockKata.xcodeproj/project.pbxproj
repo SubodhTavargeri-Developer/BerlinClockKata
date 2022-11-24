@@ -146,6 +146,8 @@
 		5B2B075B292B440400D31E6A /* BerlinClockKataTests */ = {
 			isa = PBXGroup;
 			children = (
+				5B2DFF50292F9AA4008A89EB /* Builder */,
+				5B2DFF4F292F9A30008A89EB /* Mock */,
 				5B75A594292CA7DC0083F822 /* Spy */,
 				5B2B0775292B469900D31E6A /* ClockTests.swift */,
 				5B75A58C292CA4900083F822 /* BerlinClockPresenterTests.swift */,
@@ -186,6 +188,23 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		5B2DFF4F292F9A30008A89EB /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				5B75A597292CB20F0083F822 /* ClockMock.swift */,
+				5B75A599292CCCA90083F822 /* BerlinClockMock.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
+		5B2DFF50292F9AA4008A89EB /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				5B75A59F292D02C60083F822 /* BerlinClockTimeBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
 		5B4118C4292DD6E600693E5D /* Router */ = {
 			isa = PBXGroup;
 			children = (
@@ -219,9 +238,6 @@
 			isa = PBXGroup;
 			children = (
 				5B75A595292CA7F20083F822 /* BerlinClockViewControllerSpy.swift */,
-				5B75A597292CB20F0083F822 /* ClockMock.swift */,
-				5B75A599292CCCA90083F822 /* BerlinClockMock.swift */,
-				5B75A59F292D02C60083F822 /* BerlinClockTimeBuilder.swift */,
 			);
 			path = Spy;
 			sourceTree = "<group>";
