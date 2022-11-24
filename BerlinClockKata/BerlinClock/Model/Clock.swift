@@ -4,19 +4,19 @@ class Clock: ClockProtocol {
     private typealias NumberOfIlluminateLights = Int
     private typealias CurrentIndex = Int
     
-    private struct numberOfLightsInARow {
+    private struct NumberOfLightsInARow {
         static let fiveHourRow = 4
         static let oneHourRow = 4
         static let fiveMinuteRow = 11
         static let oneMinuteRow = 4
     }
     
-    private struct lightQuotient {
+    private struct LightQuotient {
         static let fiveHourQuotient = 5
         static let fiveMinuteQuotient = 5
     }
     
-    private struct lightRemainder {
+    private struct LightRemainder {
         static let oneHourRemainder = 5
         static let oneMinuteRemainder = 5
         static let secondRemainder = 2
@@ -33,34 +33,35 @@ class Clock: ClockProtocol {
     }
     
     private func secondLightRow(_ seconds: DigitalSeconds)-> Light {
-        return seconds % lightRemainder.secondRemainder == 0 ? .Yellow: .Off
+        return seconds % LightRemainder.secondRemainder == 0 ? .Yellow: .Off
     }
     
     private func fiveHourLightRow(_ hours: DigitalHours)-> [Light] {
-        let numberOfRedLights = hours / lightQuotient.fiveHourQuotient
+        let numberOfRedLights = hours / LightQuotient.fiveHourQuotient
         
-        return totalLightsForARowContainingIlluminatedLights(totalNumberOfLightsInARow: numberOfLightsInARow.fiveHourRow,
+        return totalLightsForARowContainingIlluminatedLights(totalNumberOfLightsInARow: NumberOfLightsInARow.fiveHourRow,
                                                              numberOfIlluminatedLights: numberOfRedLights,
                                                              illuminatedLight: .Red)
     }
     
     private func oneHourLightRow(_ hours: DigitalHours)-> [Light] {
-        let numberOfRedLights = hours % lightRemainder.oneHourRemainder
+        let numberOfRedLights = hours % LightRemainder.oneHourRemainder
         
-        return totalLightsForARowContainingIlluminatedLights(totalNumberOfLightsInARow: numberOfLightsInARow.oneHourRow,
+        return totalLightsForARowContainingIlluminatedLights(totalNumberOfLightsInARow: NumberOfLightsInARow.oneHourRow,
                                                              numberOfIlluminatedLights: numberOfRedLights,
                                                              illuminatedLight: .Red)
     }
     
     private func fiveMinuteLightRow(_ minutes: DigitalMinutes)-> [Light] {
-        let numberOfIlluminatedLights = minutes / lightQuotient.fiveMinuteQuotient
+        let numberOfIlluminatedLights = minutes / LightQuotient.fiveMinuteQuotient
         
-        var totalNumberOfLights = totalLightsForARowContainingIlluminatedLights(totalNumberOfLightsInARow:numberOfLightsInARow.fiveMinuteRow,
+        var totalNumberOfLights = totalLightsForARowContainingIlluminatedLights(totalNumberOfLightsInARow: NumberOfLightsInARow.fiveMinuteRow,
                                                                                 numberOfIlluminatedLights: numberOfIlluminatedLights,
                                                                                 illuminatedLight: .Yellow)
         
         for index in 1...totalNumberOfLights.count where
-        isThirdLightYellowInFiveMinuteLightRow(index: index, totalLights: totalNumberOfLights) {
+        isThirdLightYellowInFiveMinuteLightRow(index: index,
+                                               totalLights: totalNumberOfLights) {
             totalNumberOfLights[index-1] = Light.Red
         }
         
@@ -68,9 +69,9 @@ class Clock: ClockProtocol {
     }
     
     private func oneMinuteLightRow(_ minutes: DigitalMinutes)-> [Light] {
-        let numberOfYellowLights = minutes % lightRemainder.oneMinuteRemainder
+        let numberOfYellowLights = minutes % LightRemainder.oneMinuteRemainder
         
-        return totalLightsForARowContainingIlluminatedLights(totalNumberOfLightsInARow: numberOfLightsInARow.oneMinuteRow,
+        return totalLightsForARowContainingIlluminatedLights(totalNumberOfLightsInARow: NumberOfLightsInARow.oneMinuteRow,
                                                              numberOfIlluminatedLights: numberOfYellowLights,
                                                              illuminatedLight: .Yellow)
         
@@ -78,7 +79,7 @@ class Clock: ClockProtocol {
     
     private func isThirdLightYellowInFiveMinuteLightRow(index: CurrentIndex,
                                                         totalLights: [Light])-> Bool {
-        return index % lightRemainder.thirdLightInFiveMinuteRemainder == 0
+        return index % LightRemainder.thirdLightInFiveMinuteRemainder == 0
         && totalLights[index-1] == .Yellow
     }
     
