@@ -10,7 +10,9 @@ The final two rows represent the minutes. The upper row represents 5 minute bloc
 
 
 ## Things that the program will not do
-- Manual Time Entery not allowed, time should be selected from picker(dropdown).
+- Time should be selected from picker(dropdown).
+- If Time entered manually (in simulator) then current value present in picker will be taken as input for Belgium Clock.
+
 
 ## Prerequisites
 
