@@ -38,7 +38,10 @@ class Clock: ClockProtocol {
     private func fiveHourLightRow(_ hours: DigitalHours)-> [Light] {
         let numberOfRedLights = hours/lightQuotient.fiveHourQuotient
         
-        let totalNumberOfLights = totalLightsForARowContainingIlluminatedLights(totalNumberOfLightsInARow: numberOfLightsInARow.fiveHourRow, numberOfIlluminatedLights: numberOfRedLights, illuminatedLight: .Red)
+        let totalNumberOfLights = totalLightsForARowContainingIlluminatedLights(
+            totalNumberOfLightsInARow: numberOfLightsInARow.fiveHourRow,
+            numberOfIlluminatedLights: numberOfRedLights,
+            illuminatedLight: .Red)
         
         return totalNumberOfLights
     }
@@ -46,8 +49,10 @@ class Clock: ClockProtocol {
     private func oneHourLightRow(_ hours: DigitalHours)-> [Light] {
         let numberOfRedLights = hours%lightRemainder.oneHourRemainder
         
-        let totalNumberOfLights = totalLightsForARowContainingIlluminatedLights(totalNumberOfLightsInARow: numberOfLightsInARow.oneHourRow,
-                                                          numberOfIlluminatedLights: numberOfRedLights, illuminatedLight: .Red)
+        let totalNumberOfLights = totalLightsForARowContainingIlluminatedLights(
+            totalNumberOfLightsInARow: numberOfLightsInARow.oneHourRow,
+            numberOfIlluminatedLights: numberOfRedLights,
+            illuminatedLight: .Red)
         
         return totalNumberOfLights
     }
@@ -55,9 +60,10 @@ class Clock: ClockProtocol {
     private func fiveMinuteLightRow(_ minutes: DigitalMinutes)-> [Light] {
         let numberOfIlluminatedLights = minutes/lightQuotient.fiveMinuteQuotient
         
-        var totalNumberOfLights = totalLightsForARowContainingIlluminatedLights(totalNumberOfLightsInARow:numberOfLightsInARow.fiveMinuteRow,
-                                                          numberOfIlluminatedLights: numberOfIlluminatedLights,
-                                                          illuminatedLight: .Yellow)
+        var totalNumberOfLights = totalLightsForARowContainingIlluminatedLights(
+            totalNumberOfLightsInARow:numberOfLightsInARow.fiveMinuteRow,
+            numberOfIlluminatedLights: numberOfIlluminatedLights,
+            illuminatedLight: .Yellow)
         
         for index in 1...totalNumberOfLights.count where
         isThirdLightYellowInFiveMinuteLightRow(index: index, totalLights: totalNumberOfLights) {
@@ -70,9 +76,10 @@ class Clock: ClockProtocol {
     private func oneMinuteLightRow(_ minutes: DigitalMinutes)-> [Light] {
         let numberOfYellowLights = minutes%lightRemainder.oneMinuteRemainder
         
-        let totalNumberOfLights = totalLightsForARowContainingIlluminatedLights(totalNumberOfLightsInARow:numberOfLightsInARow.oneMinuteRow,
-                                                          numberOfIlluminatedLights: numberOfYellowLights,
-                                                          illuminatedLight: .Yellow)
+        let totalNumberOfLights = totalLightsForARowContainingIlluminatedLights(totalNumberOfLightsInARow:
+                                                                        numberOfLightsInARow.oneMinuteRow,
+                                                                        numberOfIlluminatedLights: numberOfYellowLights,
+                                                                        illuminatedLight: .Yellow)
         
         return totalNumberOfLights
     }
@@ -84,8 +91,8 @@ class Clock: ClockProtocol {
     }
     
     private func totalLightsForARowContainingIlluminatedLights(totalNumberOfLightsInARow: numberOfLights,
-                                         numberOfIlluminatedLights: numberOfIlluminateLights,
-                                         illuminatedLight: Light)-> [Light] {
+                                                               numberOfIlluminatedLights: numberOfIlluminateLights,
+                                                               illuminatedLight: Light)-> [Light] {
         
         var totalNumberOfLights = [Light]()
         
