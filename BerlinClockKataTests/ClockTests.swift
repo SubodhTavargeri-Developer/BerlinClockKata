@@ -224,7 +224,7 @@ class ClockTests: XCTestCase {
         XCTAssertEqual(originalValue, expected)
     }
     
-    func test_EntireBerlinClock_WhenTimeIsElevenThirtySevenZeroOne() {
+    func test_EntireBerlinClock_WhenTimeIsElevenThirtySevenOne() {
         let Time = DigitalTime(hours: 11, minutes: 37, seconds: 01)
         
         let originalValue = clock.computeBerlinClockTime(for: Time)
