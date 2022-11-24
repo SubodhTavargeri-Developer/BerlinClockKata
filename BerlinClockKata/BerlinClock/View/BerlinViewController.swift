@@ -89,7 +89,7 @@ extension BerlinViewController: BerlinClockViewProtocol {
         self.timePickerModel = timePickerModel
     }
     
-    func displayViewTitle(title: String) {
+    func displayViewTitle(title: ViewTitle) {
         self.title = title
     }
     

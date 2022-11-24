@@ -5,7 +5,7 @@ class BerlinClockViewControllerSpy: BerlinClockViewProtocol {
     var clock: BerlinClockTime?
     var timePicker: TimePickerModel?
     
-    func displayViewTitle(title: String) {
+    func displayViewTitle(title: ViewTitle) {
         self.title = title
     }
     
