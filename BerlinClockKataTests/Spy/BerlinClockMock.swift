@@ -10,11 +10,11 @@ struct BerlinClockMock {
                                          .Yellow,.Yellow,.Red]
         let oneMinuteLight:[Light] = [.Yellow,.Yellow,.Off,.Off]
         let secondLight:Light = .Yellow
-        let berlin = BerlinClockTime(secondsLight: secondLight,
+        let berlinClockTime = BerlinClockTime(secondsLight: secondLight,
                                      fiveHoursLights: fiveHourLight,
                                      oneHoursLights: oneHourLight,
                                      fiveMinutesLights: fiveMinutesLights,
                                      oneMinutesLights: oneMinuteLight)
-        return berlin
+        return berlinClockTime
     }
 }
