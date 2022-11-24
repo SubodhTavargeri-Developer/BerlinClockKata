@@ -11,7 +11,7 @@ class BerlinClockPresenter: BerlinClockPresenterProtocol {
     
     func loadPresenter() {
         displayViewTitle()
-        timePickerValues()
+        setTimePickerValues()
     }
     
     func handleTimeButtonAction(digitalTime: DigitalTime) {
@@ -23,7 +23,7 @@ class BerlinClockPresenter: BerlinClockPresenterProtocol {
         view?.displayViewTitle(title: Constant.Title.screenTitle)
     }
     
-    private func timePickerValues() {
+    private func setTimePickerValues() {
         let timePickerModel = TimePickerModel(hoursEndValue: Constant.TimePicker.hours,
                                               minutesEndValue: Constant.TimePicker.minutes,
                                               secondsEndValue: Constant.TimePicker.seconds)
