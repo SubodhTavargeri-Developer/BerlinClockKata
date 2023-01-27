@@ -1,3 +1,6 @@
+//  Created by Subodh Tavargeri
+//  Setup Spy for BerlinViewController
+
 @testable import BerlinClockKata
 
 class BerlinClockViewControllerSpy: BerlinClockViewProtocol {

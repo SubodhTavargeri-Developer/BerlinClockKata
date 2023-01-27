@@ -1,3 +1,6 @@
+//  Created by Subodh Tavargeri
+//  Setup MockData for BerlinClock
+
 @testable import BerlinClockKata
 
 struct BerlinClockMock {
