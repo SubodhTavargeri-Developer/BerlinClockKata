@@ -1,3 +1,6 @@
+//  Created by Subodh Tavargeri
+//  Setup Clock TestCase
+
 import XCTest
 @testable import BerlinClockKata
 

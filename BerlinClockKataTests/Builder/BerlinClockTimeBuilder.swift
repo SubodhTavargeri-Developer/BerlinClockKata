@@ -1,3 +1,6 @@
+//  Created by Subodh Tavargeri
+//  Setup BerlinClock Builder to setup BerlinClockTime
+
 @testable import BerlinClockKata
 
 class BerlinClockTimeBuilder {

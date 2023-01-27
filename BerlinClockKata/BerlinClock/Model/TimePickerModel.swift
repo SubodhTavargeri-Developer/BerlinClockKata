@@ -1,3 +1,6 @@
+//  Created by Subodh Tavargeri
+//  BerlinClockTime Model displayed on UI to user
+
 struct TimePickerModel {
     let hoursEndValue: TimePickerHourUpperLimit
     let minutesEndValue: TimePickerMinutesUpperLimit

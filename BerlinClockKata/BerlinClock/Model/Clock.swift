@@ -1,3 +1,7 @@
+//  Created by Subodh Tavargeri
+//  Logic to convert DigitalTime received to BerlinClockTime
+
+
 class Clock: ClockProtocol {
     
     private typealias NumberOfLights = Int
@@ -9,6 +13,7 @@ class Clock: ClockProtocol {
         static let oneHourRow = 4
         static let fiveMinuteRow = 11
         static let oneMinuteRow = 4
+        static let nextIndex = 1
     }
     
     private struct LightQuotient {
@@ -23,6 +28,10 @@ class Clock: ClockProtocol {
         static let thirdLightInFiveMinuteRemainder = 3
     }
     
+    /// Convert DigitalTime model to BerlinClockTime model
+    /// - Parameters:
+    ///  - digitalTime: DigitalTime model
+    /// - Returns: BerlinClockTime model
     func computeBerlinClockTime(for digitalTime: DigitalTime)-> BerlinClockTime {
         BerlinClockTime(secondsLight: secondLightRow(digitalTime.seconds),
                         fiveHoursLights: fiveHourLightRow(digitalTime.hours),
@@ -32,10 +41,18 @@ class Clock: ClockProtocol {
         )
     }
     
+    /// Calculate SecondsLight Row
+    /// - Parameters:
+    ///  - seconds: DigitalTime seconds Model
+    /// - Returns: Light Color
     private func secondLightRow(_ seconds: DigitalSeconds)-> Light {
         return seconds % LightRemainder.secondRemainder == 0 ? .Yellow: .Off
     }
     
+    /// Calculate FiveHourLightRow
+    /// - Parameters:
+    ///  - seconds: DigitalTime hours Model
+    /// - Returns: Array of Light Color
     private func fiveHourLightRow(_ hours: DigitalHours)-> [Light] {
         let numberOfRedLights = hours / LightQuotient.fiveHourQuotient
         
@@ -44,6 +61,10 @@ class Clock: ClockProtocol {
                                                              illuminatedLight: .Red)
     }
     
+    /// Calculate OneHourLightRow
+    /// - Parameters:
+    ///  - seconds: DigitalTime hours Model
+    /// - Returns: Array of Light Color
     private func oneHourLightRow(_ hours: DigitalHours)-> [Light] {
         let numberOfRedLights = hours % LightRemainder.oneHourRemainder
         
@@ -52,22 +73,29 @@ class Clock: ClockProtocol {
                                                              illuminatedLight: .Red)
     }
     
+    /// Calculate FiveMinuteLightRow
+    /// - Parameters:
+    ///  - minutes: DigitalTime minutes Model
+    /// - Returns: Array of Light Color
     private func fiveMinuteLightRow(_ minutes: DigitalMinutes)-> [Light] {
         let numberOfIlluminatedLights = minutes / LightQuotient.fiveMinuteQuotient
         
         var totalNumberOfLights = totalLightsForARowContainingIlluminatedLights(totalNumberOfLightsInARow: NumberOfLightsInARow.fiveMinuteRow,
                                                                                 numberOfIlluminatedLights: numberOfIlluminatedLights,
                                                                                 illuminatedLight: .Yellow)
-        
-        for index in 1...totalNumberOfLights.count where
-        isThirdLightYellowInFiveMinuteLightRow(index: index,
-                                               totalLights: totalNumberOfLights) {
-            totalNumberOfLights[index-1] = Light.Red
+        totalNumberOfLights =  totalNumberOfLights.enumerated().map { index,
+            element in isThirdLightYellowInFiveMinuteLightRow(index: index + NumberOfLightsInARow.nextIndex,
+                                                              totalLights: totalNumberOfLights) ? .Red : element
         }
+        
         
         return totalNumberOfLights
     }
     
+    /// Calculate OneMinuteLightRow
+    /// - Parameters:
+    ///  - minutes: DigitalTime minutes Model
+    /// - Returns: Array of Light Color
     private func oneMinuteLightRow(_ minutes: DigitalMinutes)-> [Light] {
         let numberOfYellowLights = minutes % LightRemainder.oneMinuteRemainder
         
@@ -77,6 +105,10 @@ class Clock: ClockProtocol {
         
     }
     
+    /// Check if Third Light is Yellow in FiveMinute Low Row
+    /// - Parameters:
+    ///  - minutes: DigitalTime minutes Model
+    /// - Returns: Array of Light Color
     private func isThirdLightYellowInFiveMinuteLightRow(index: CurrentIndex,
                                                         totalLights: [Light])-> Bool {
         return index % LightRemainder.thirdLightInFiveMinuteRemainder == 0
@@ -87,16 +119,10 @@ class Clock: ClockProtocol {
                                                                numberOfIlluminatedLights: NumberOfIlluminateLights,
                                                                illuminatedLight: Light)-> [Light] {
         
-        var totalNumberOfLights = [Light]()
+        let totalNumberOfLightsOn = [Light](repeating: illuminatedLight, count: numberOfIlluminatedLights)
         
-        for _ in 0..<totalNumberOfLightsInARow {
-            totalNumberOfLights.append(.Off)
-        }
+        let totalNumberOfLightsOff = [Light](repeating: .Off, count: totalNumberOfLightsInARow - numberOfIlluminatedLights)
         
-        for index in 0..<numberOfIlluminatedLights {
-            totalNumberOfLights[index] = illuminatedLight
-        }
-        
-        return totalNumberOfLights
+        return totalNumberOfLightsOn + totalNumberOfLightsOff
     }
 }

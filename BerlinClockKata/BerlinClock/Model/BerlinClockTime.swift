@@ -1,3 +1,6 @@
+//  Created by Subodh Tavargeri
+//  BerlinClockTime Model displayed on UI to user
+
 struct BerlinClockTime {
     let secondsLight: Light
     let fiveHoursLights: [Light]

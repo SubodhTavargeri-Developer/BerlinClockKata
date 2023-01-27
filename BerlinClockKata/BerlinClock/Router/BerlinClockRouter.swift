@@ -1,3 +1,6 @@
+//  Created by Subodh Tavargeri
+//  Set Router for BerlinViewController, helps in navigation
+
 import UIKit
 
 class BerlinClockRouter: RouterProtocol {
@@ -9,7 +12,7 @@ class BerlinClockRouter: RouterProtocol {
     }
     
     func routeToBerlinViewController() {
-        let view = BerlinClockFactory.create(router: self)
+        let view = BerlinClockFactory.create()
         navigationController.setViewControllers([view], animated: true)
     }
 }

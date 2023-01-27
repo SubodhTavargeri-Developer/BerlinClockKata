@@ -1,3 +1,5 @@
+//  Constants to maintain values to be used through entire Project
+
 struct Constant {
     struct Title {
         static let screenTitle = "Berlin Clock"

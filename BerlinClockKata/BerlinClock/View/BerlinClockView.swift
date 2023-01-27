@@ -1,3 +1,6 @@
+//  Created by Subodh Tavargeri
+//  Setup customView with color
+
 import UIKit
 
 func BerlinClockLight()-> UIView {
