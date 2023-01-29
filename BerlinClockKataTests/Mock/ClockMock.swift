@@ -1,5 +1,5 @@
-//  Created by Subodh Tavargeri
-//  Setup BerlinClockPresenter Testcase
+//  Created by Subodh Tavargeri on 27/11/22.
+//  Setup MockData for Clock
 
 @testable import BerlinClockKata
 

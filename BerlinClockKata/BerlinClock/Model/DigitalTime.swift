@@ -1,4 +1,4 @@
-//  Created by Subodh Tavargeri
+//  Created by Subodh Tavargeri on 25/11/22.
 //  DigitalTime Model which we receive as input from user
 
 struct DigitalTime {

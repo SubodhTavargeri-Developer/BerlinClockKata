@@ -1,4 +1,4 @@
-//  Created by Subodh Tavargeri
+//  Created by Subodh Tavargeri on 27/11/22.
 //  Setup MockData for BerlinClock
 
 @testable import BerlinClockKata
