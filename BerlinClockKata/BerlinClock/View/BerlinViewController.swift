@@ -36,12 +36,13 @@ class BerlinViewController: UIViewController {
         self.presenter = presenter
     }
     
-    ///  Setup view for textField
+    ///  Setup customView for textField
     private func setupView() {
         textFieldTime.inputView = pickerTime
         textFieldTime.inputAccessoryView = toolBarDone
     }
     
+    // MARK: Private Methods
     @IBAction private func doneToolBarButtonPressed(_ sender: Any) {
         setTextFieldValue()
         textFieldTime.resignFirstResponder()
@@ -60,6 +61,7 @@ class BerlinViewController: UIViewController {
         textFieldTime.text = ("\(userSelectedHours):\(userSelectedMinutes):\(userSelectedSeconds)")
     }
     
+    // Remove all subviews from StackViews when user updates DigitalTime
     private func removeLightViewInsideBerlinClockView() {
         removeSubViewsInsideStackView(stackViewSeconds)
         removeSubViewsInsideStackView(stackViewFiveHour)
@@ -68,7 +70,7 @@ class BerlinViewController: UIViewController {
         removeSubViewsInsideStackView(stackViewOneMinute)
     }
     
-    //Remove stackView before creating new stackView
+    //  Remove stackView before creating new stackView
     private func removeSubViewsInsideStackView(_ stackview: UIStackView) {
         stackview.arrangedSubviews.forEach{$0.removeFromSuperview()}
     }
@@ -97,21 +99,21 @@ class BerlinViewController: UIViewController {
 
 extension BerlinViewController: BerlinClockViewProtocol {
     
-    //Setup TimePickerModel with maximum hours,minutes and seconds
+    //  Setup TimePickerModel with maximum hours,minutes and seconds
     /// - Parameters:
     ///  - timePickerModel: Setup TimePickerModel with max hr,min,sec
     func setTimePickerValues(timePickerModel: TimePickerModel) {
         self.timePickerModel = timePickerModel
     }
     
-    //Setup Title for screen
+    //  Setup Title for screen
     /// - Parameters:
     ///  - title: set screenTitle
     func displayViewTitle(title: ViewTitle) {
         self.title = title
     }
     
-    //Setup stackViewLights with colors
+    //  Setup stackViewLights with colors
     /// - Parameters:
     ///  - berlinClock: BerlinClock Model with array of Lights
     func displayBerlinClockView(berlinClock: BerlinClockTime) {
@@ -128,7 +130,7 @@ extension BerlinViewController: BerlinClockViewProtocol {
     }
 }
 
-//Setup custom Picker
+//  Setup custom Picker
 extension BerlinViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -186,6 +188,7 @@ extension BerlinViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     }
 }
 
+// Extension for Light to display Color
 private extension Light {
     func getColor() -> UIColor {
         switch self {

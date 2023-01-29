@@ -17,13 +17,13 @@ class BerlinClockPresenter: BerlinClockPresenterProtocol {
         self.clock = clock
     }
     
-    //LoadPresenter with title and pickerValues
+    //  LoadPresenter with title and pickerValues
     func loadPresenter() {
         displayViewTitle()
         setTimePickerValues()
     }
     
-    //Setup DoneButton Action, after user enter Presenter
+    //  Setup DoneButton Action, after user enter Presenter
     /// - Parameters:
     ///  - digitalTime: Setup DigitalTime received from user
     func handleTimeButtonAction(digitalTime: DigitalTime) {
@@ -31,11 +31,12 @@ class BerlinClockPresenter: BerlinClockPresenterProtocol {
         view?.displayBerlinClockView(berlinClock: berlinClock)
     }
     
-    //Setup title for View
+    //  Setup title for View
     private func displayViewTitle() {
         view?.displayViewTitle(title: Constant.Title.screenTitle)
     }
     
+    // Setup Default TimerPicker Values
     private func setTimePickerValues() {
         let timePickerModel = TimePickerModel(hoursEndValue: Constant.TimePicker.hours,
                                               minutesEndValue: Constant.TimePicker.minutes,

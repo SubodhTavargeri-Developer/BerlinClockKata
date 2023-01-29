@@ -41,6 +41,8 @@ class Clock: ClockProtocol {
         )
     }
     
+    // MARK: Private Methods
+    
     /// Calculate SecondsLight Row
     /// - Parameters:
     ///  - seconds: DigitalTime seconds Model
@@ -115,6 +117,12 @@ class Clock: ClockProtocol {
         && totalLights[index-1] == .Yellow
     }
     
+    /// Calculate totalLights that needs to be On/Off for each Row
+    /// - Parameters:
+    ///  - totalNumberOfLightsInARow: Total number of Lights For an Row
+    ///  - numberOfIlluminatedLights: Total number of Lights On
+    ///  - illuminatedLight: Light Color
+    ///
     private func totalLightsForARowContainingIlluminatedLights(totalNumberOfLightsInARow: NumberOfLights,
                                                                numberOfIlluminatedLights: NumberOfIlluminateLights,
                                                                illuminatedLight: Light)-> [Light] {
